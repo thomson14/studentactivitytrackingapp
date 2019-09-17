@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1041808854413",
+    "firebase_url": "https://studentactivitytrackingapp.firebaseio.com",
+    "project_id": "studentactivitytrackingapp",
+    "storage_bucket": "studentactivitytrackingapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041808854413:android:53dbec44436995969c41c4",
+        "android_client_info": {
+          "package_name": "com.example.studentactivitytrackingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041808854413-siqck5oiqrpjo1pft2o4l6tgocg7qrua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.studentactivitytrackingapp",
+            "certificate_hash": "8734698de494f7710d3a155ae0dabfa4e097d9c1"
+          }
+        },
+        {
+          "client_id": "1041808854413-3oe8ub42q6nggbgbl0mtg4jkvg325190.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9sinmdA2GSLo_AI4ORvVhhRh6mmCBvmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041808854413-3oe8ub42q6nggbgbl0mtg4jkvg325190.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
