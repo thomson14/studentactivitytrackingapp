@@ -51,10 +51,10 @@ public class Login_Activity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Intent intent = new Intent(Login_Activity.this,Home.class);
+                                Intent intent = new Intent(Login_Activity.this,MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
-                                finish();
+                                //finish();
                             }else {
                                 Toast.makeText(Login_Activity.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
                             }

@@ -107,7 +107,6 @@ public class Register_Activity extends AppCompatActivity {
 
                                         Intent intent = new Intent(Register_Activity.this, Login_Activity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        Toast.makeText(Register_Activity.this,"You are register!!",Toast.LENGTH_SHORT).show();
                                         startActivity(intent);
                                         finish();
 
