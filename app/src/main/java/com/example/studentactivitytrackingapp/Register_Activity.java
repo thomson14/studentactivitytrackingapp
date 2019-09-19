@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,13 +28,13 @@ public class Register_Activity extends AppCompatActivity {
         Button btn_Register;
         FirebaseAuth auth;
         DatabaseReference reference;
-
+        ProgressBar registerProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_);
-
+        registerProgress = findViewById(R.id.registerProgress);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Register");
@@ -52,7 +53,7 @@ public class Register_Activity extends AppCompatActivity {
         btn_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                registerProgress.setVisibility(View.VISIBLE);
                 String txt_username = username.getText().toString();
                 String txt_email = email.getText().toString();
                 String txt_phone = phone_num.getText().toString();
@@ -85,6 +86,7 @@ public class Register_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if(task.isSuccessful()){
+                                registerProgress.setVisibility(View.INVISIBLE);
                                 FirebaseUser firebaseUser = auth.getCurrentUser();
                                 assert firebaseUser != null;
                                 String UserID =firebaseUser.getUid();

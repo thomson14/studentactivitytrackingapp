@@ -31,7 +31,7 @@
         <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email"
+            android:id="@+id/emailL"
             android:layout_marginTop="10dp"
             android:inputType="textEmailAddress"
             app:met_floatingLabel="normal"
@@ -40,7 +40,7 @@
         <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
+            android:id="@+id/passwordL"
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
             app:met_floatingLabel="normal"
@@ -51,10 +51,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_loginL"
             android:background="@color/colorPrimaryDark"
             android:textColor="#fff"
             android:layout_marginTop="10dp"/>
+
+        <ProgressBar
+            android:id="@+id/loginProgress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

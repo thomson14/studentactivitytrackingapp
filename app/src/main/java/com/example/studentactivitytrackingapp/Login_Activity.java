@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,43 +19,47 @@ import com.rengwuxian.materialedittext.MaterialAutoCompleteTextView;
 
 public class Login_Activity extends AppCompatActivity {
 
-    MaterialAutoCompleteTextView email,password;
-    Button btn_login;
+    MaterialAutoCompleteTextView emailL,passwordL;
+    Button btn_loginL;
     FirebaseAuth auth;
+    ProgressBar loginProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_);
-
+        loginProgress = findViewById(R.id.loginProgress);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Login");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        email =  findViewById(R.id.email);
-        password =  findViewById(R.id.password);
-        btn_login = (Button) findViewById(R.id.btn_login);
-
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        emailL =  findViewById(R.id.emailL);
+        passwordL =  findViewById(R.id.passwordL);
+        btn_loginL = (Button) findViewById(R.id.btn_loginL);
+        auth = FirebaseAuth.getInstance();
+        btn_loginL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String txt_email = email.getText().toString();
-                String txt_password = password.getText().toString();
+                loginProgress.setVisibility(View.VISIBLE);
+                String txt_email = emailL.getText().toString();
+                String txt_password = passwordL.getText().toString();
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(Login_Activity.this,"All Fields Are Requierds",Toast.LENGTH_SHORT).show();
 
                 }else {
 
-                    auth.signInWithEmailAndPassword(txt_email,txt_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    auth.signInWithEmailAndPassword(txt_email,txt_password).
+                            addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                loginProgress.setVisibility(View.INVISIBLE);
                                 Intent intent = new Intent(Login_Activity.this,MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
-                                //finish();
+                                finish();
                             }else {
                                 Toast.makeText(Login_Activity.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
                             }
