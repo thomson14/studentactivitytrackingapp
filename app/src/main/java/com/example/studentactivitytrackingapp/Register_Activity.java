@@ -29,6 +29,11 @@ public class Register_Activity extends AppCompatActivity {
         FirebaseAuth auth;
         DatabaseReference reference;
         ProgressBar registerProgress;
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,7 @@ public class Register_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Register");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
