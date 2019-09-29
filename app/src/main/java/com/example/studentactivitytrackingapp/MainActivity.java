@@ -1,9 +1,12 @@
 package com.example.studentactivitytrackingapp;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.view.View;
 
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
@@ -17,16 +20,30 @@ public class MainActivity extends AppCompatActivity {
     Class fragmentClass;
     public static Fragment fragment;
 
+    //our activity
+    CardView Cardtodolist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Cardtodolist = findViewById(R.id.card_view);
+        Cardtodolist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,ToDoList.class);
+                startActivity(intent);
+            }
+        });
+
+
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
 
         List<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(new MenuItem("HOME",R.drawable.home));
-       // menuItems.add(new MenuItem("Feed",R.drawable.photo5));
+        menuItems.add(new MenuItem("To Do List",R.drawable.todolistnav));
         //menuItems.add(new MenuItem("Messages",R.drawable.photo6));
         //menuItems.add(new MenuItem("Music",R.drawable.photo7));
 
@@ -55,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
                         fragmentClass = Home.class;
                         break;
                     }
-                  /*  case 1: {
-                        fragmentClass = FeedFragment.class;
+                    case 1: {
+                        fragmentClass = ToDoList.class;
                         break;
                     }
-                    case 2: {
+                  /*  case 2: {
                         fragmentClass = MessagesFragment.class;
                         break;
                     }

@@ -25,6 +25,12 @@ public class Login_Activity extends AppCompatActivity {
     ProgressBar loginProgress;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_);
@@ -33,6 +39,7 @@ public class Login_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Login");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         emailL =  findViewById(R.id.emailL);
         passwordL =  findViewById(R.id.passwordL);
