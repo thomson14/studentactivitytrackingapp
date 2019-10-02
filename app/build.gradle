@@ -31,4 +31,18 @@ dependencies {
     implementation 'com.github.shrikanth7698:Custom-Navigation-Drawer:v0.0.1'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.android.support:cardview-v7:28.0.0'
+
+    def lifecycle_version = "1.1.1"
+    def room_version = "1.1.1"
+
+    //Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+
+    //Room Components
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+
 }

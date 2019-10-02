@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
 
     //our activity
-    CardView Cardtodolist;
+    CardView Cardtodolist,cardNoteTaking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Cardtodolist = findViewById(R.id.card_view);
+        cardNoteTaking = findViewById(R.id.card_view_note);
         Cardtodolist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this,ToDoList.class);
+                startActivity(intent);
+            }
+        });
+
+        cardNoteTaking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NoteTakingActivity.class);
                 startActivity(intent);
             }
         });
