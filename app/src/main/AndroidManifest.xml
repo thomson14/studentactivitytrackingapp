@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studentactivitytrackingapp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNoteActivity"
-            android:parentActivityName=".NoteTakingActivity"
-            ></activity>
-        <activity android:name=".NoteTakingActivity"
-            android:launchMode="singleTop"
-            />
+        <activity android:name=".StudyTimerActivity">
+        </activity>
+        <activity
+            android:name=".AddNoteActivity"
+            android:parentActivityName=".NoteTakingActivity" />
+        <activity
+            android:name=".NoteTakingActivity"
+            android:launchMode="singleTop" />
         <activity android:name=".ToDoList" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Register_Activity" />
@@ -30,5 +30,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

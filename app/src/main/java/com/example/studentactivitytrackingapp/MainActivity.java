@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
 
     //our activity
-    CardView Cardtodolist,cardNoteTaking;
+    CardView Cardtodolist,cardNoteTaking,cardStudyTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cardtodolist = findViewById(R.id.card_view);
         cardNoteTaking = findViewById(R.id.card_view_note);
+        cardStudyTimer = findViewById(R.id.card_view_study);
         Cardtodolist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cardStudyTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, StudyTimerActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
