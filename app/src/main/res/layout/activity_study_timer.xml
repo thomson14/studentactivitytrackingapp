@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".StudyTimerActivity">
+
+    <EditText
+        android:id="@+id/edit_title_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        />
+
+    <EditText
+        android:id="@+id/edit_Description_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+   <EditText
+       android:id="@+id/edit_Time_picker"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Minute"
+       android:layout_weight="50"
+       android:inputType="number"
+       />
+
+        <Button
+            android:id="@+id/btn_time_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set"
+            android:background="@color/colorPrimary"
+            android:layout_weight="50"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="00 : 00"
+        android:textSize="80dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    <Button
+        android:id="@+id/button_start_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start"
+        />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        android:layout_toRightOf="@+id/button_start_pause"
+        android:visibility="invisible"
+        android:layout_marginLeft="200dp"
+        tools:visibility = "visible"
+        />
+    </RelativeLayout>
+
+
+</LinearLayout>
