@@ -1,4 +1,4 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.todoList;
 
 public class ToDoItem {
 

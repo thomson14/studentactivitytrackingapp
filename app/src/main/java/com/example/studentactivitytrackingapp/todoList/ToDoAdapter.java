@@ -1,7 +1,6 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.todoList;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.example.studentactivitytrackingapp.R;
 
 import java.util.ArrayList;
 

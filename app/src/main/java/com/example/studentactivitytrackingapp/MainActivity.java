@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
+import com.example.studentactivitytrackingapp.noteTaking.NoteTakingActivity;
+import com.example.studentactivitytrackingapp.todoList.ToDoList;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,ToDoList.class);
+                Intent intent = new Intent(MainActivity.this, ToDoList.class);
                 startActivity(intent);
             }
         });

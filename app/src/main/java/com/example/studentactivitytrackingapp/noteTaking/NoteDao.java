@@ -1,4 +1,4 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.noteTaking;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -26,8 +26,6 @@ public interface NoteDao {
 
     @Query("SELECT * FROM note_table ")
     LiveData<List<Note>> getAllNotes();
-
-
 
 
 }

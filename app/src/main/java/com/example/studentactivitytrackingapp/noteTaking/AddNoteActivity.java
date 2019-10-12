@@ -1,4 +1,4 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.noteTaking;
 
 import android.content.Intent;
 import android.provider.ContactsContract;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+
+import com.example.studentactivitytrackingapp.R;
 
 public class AddNoteActivity extends AppCompatActivity {
 

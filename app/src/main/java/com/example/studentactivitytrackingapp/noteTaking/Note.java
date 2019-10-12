@@ -1,4 +1,4 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.noteTaking;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

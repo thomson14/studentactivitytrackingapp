@@ -11,18 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNoteActivity"
-            android:parentActivityName=".NoteTakingActivity"
+        <activity android:name=".noteTaking.AddNoteActivity"
+            android:parentActivityName=".noteTaking.NoteTakingActivity"
             ></activity>
-        <activity android:name=".NoteTakingActivity"
+        <activity android:name=".noteTaking.NoteTakingActivity"
             android:launchMode="singleTop"
             />
-        <activity android:name=".ToDoList" />
+        <activity android:name=".todoList.ToDoList" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Register_Activity" />
-        <activity android:name=".Login_Activity" />
+        <activity android:name=".authentication.Register_Activity" />
+        <activity android:name=".authentication.Login_Activity" />
         <activity android:name=".Home" />
-        <activity android:name=".Log_and_Regis">
+        <activity android:name=".authentication.Log_and_Regis">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

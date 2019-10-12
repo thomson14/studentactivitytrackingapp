@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".AddNoteActivity">
+    tools:context=".noteTaking.AddNoteActivity">
 
     <EditText
         android:id="@+id/title_note"

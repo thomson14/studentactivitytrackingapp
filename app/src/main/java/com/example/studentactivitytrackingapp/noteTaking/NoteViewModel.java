@@ -1,4 +1,4 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.noteTaking;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
