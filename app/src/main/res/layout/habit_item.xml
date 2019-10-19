@@ -40,14 +40,15 @@
 
                 />
 
-            <ImageView
+            <CheckBox
                 android:id="@+id/checked"
                 android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-               android:src="@drawable/ic_check_black_24dp"
+                android:src="@drawable/ic_check_black_24dp"
 
                 />
+
         </LinearLayout>
 
         <LinearLayout

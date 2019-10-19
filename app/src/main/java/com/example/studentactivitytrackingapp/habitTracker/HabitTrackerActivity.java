@@ -11,17 +11,23 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.studentactivitytrackingapp.R;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
     public static final int HABIT_REQUEST = 5;
-
+    private static final String TAG =" Habit Tracker Activity" ;
+    private  int dateToday;
+    private  int monthToday;
+    Calendar c = Calendar.getInstance();
     private  HabitViewModel habitViewModel;
     FloatingActionButton addHabit;
     @Override
@@ -30,13 +36,14 @@ public class HabitTrackerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_habit_tracker);
 
         addHabit = findViewById(R.id.addHabitfab);
-
+        dateToday = c.get(Calendar.DATE);
+        monthToday = c.get(Calendar.MONTH);
 
         final RecyclerView habitTrackerRecyclerView = findViewById(R.id.recycler_view_habit);
         habitTrackerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         habitTrackerRecyclerView.setHasFixedSize(true);
 
-        final HabitAdapter adapter = new HabitAdapter();
+        final HabitAdapter adapter = new HabitAdapter(this);
         habitTrackerRecyclerView.setAdapter(adapter);
 
         habitViewModel = ViewModelProviders.of(this).get(HabitViewModel.class);
@@ -46,6 +53,11 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 //update Our recycler view later
 
                 adapter.setHabits(habits);
+                Log.d(TAG, "onChanged: Habits "+ habits);
+
+                for(Habit habit : habits){
+                    Log.d(TAG, "onChanged: "+ habit.getTitle() + " ID "+ habit.getId() + " STATUS "+ habit.isStatus());
+                }
 
             }
         });
@@ -84,14 +96,20 @@ public class HabitTrackerActivity extends AppCompatActivity {
            int reminderHour = data.getIntExtra(AddHabitActivity.EXTRA_SELECTED_HOUR,12);
            int reminderMinute = data.getIntExtra(AddHabitActivity.EXTRA_SELECTED_MINUTE,20);
 
-           Habit habit = new Habit(habitName,reminderHour,reminderMinute,false);
+           Habit habit = new Habit(habitName,reminderHour,reminderMinute,false,dateToday,monthToday);
            habitViewModel.insert(habit);
 
             Toast.makeText(this,"Habit Saved",Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "onActivityResult: Habit Name "+ habit.getTitle()+ " Reminder Time "+ habit.getReminderHour() + " : "+
+                    habit.getReminderMin() + " HABIT ID ---> "+ habit.getId() + " Habit status "+ habit.isStatus()
+                    + " current Date and month   " + habit.getCurrentDate() + " : "+ habit.getCurrentMonth()
+            );
 
         }
         else{
             Toast.makeText(this,"Not Saved",Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

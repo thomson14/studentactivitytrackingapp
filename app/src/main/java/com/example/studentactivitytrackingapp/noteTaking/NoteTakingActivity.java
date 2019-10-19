@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import java.util.List;
 public class NoteTakingActivity extends AppCompatActivity {
 
 
+    private static final String TAG = "Note Taking Activity";
     private NoteViewModel noteViewModel;
     public static final int NOTE_REQUEST = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
@@ -98,6 +100,10 @@ public class NoteTakingActivity extends AppCompatActivity {
             Note note = new Note(title, desc);
             noteViewModel.insert(note);
 
+            Log.d(TAG, "onActivityResult: Note Title "+ note.getTitle() + " Note description "+ note.getDescription()
+              + " Note ID " + note.getId()
+
+            );
             Toast.makeText(this, " NOTE SAVED ", Toast.LENGTH_SHORT).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddNoteActivity.EXTRA_ID, -1);
@@ -113,6 +119,10 @@ public class NoteTakingActivity extends AppCompatActivity {
             Note note = new Note(title, desc);
             note.setId(id);
             noteViewModel.update(note);
+            Log.d(TAG, "onActivityResult: Note Title "+ note.getTitle() + " Note description "+ note.getDescription()
+                    + " Note ID " + note.getId()
+
+            );
 
             Toast.makeText(this, " NOTE  UPDATED", Toast.LENGTH_SHORT).show();
 

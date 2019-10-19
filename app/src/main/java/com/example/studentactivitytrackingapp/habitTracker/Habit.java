@@ -48,6 +48,10 @@ public class Habit {
         return id;
     }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     public Habit(String title, int reminderHour, int reminderMin, boolean status, int currentDate, int currentMonth) {
         this.title = title;
         this.reminderHour = reminderHour;
@@ -61,6 +65,11 @@ public class Habit {
         this.title = title;
         this.reminderHour = reminderHour;
         this.reminderMin = reminderMin;
+        this.status = status;
+    }
+
+    @Ignore
+    public Habit(boolean status){
         this.status = status;
     }
 }
