@@ -1,6 +1,7 @@
 package com.example.studentactivitytrackingapp.habitTracker;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "habit_table")
@@ -54,5 +55,12 @@ public class Habit {
         this.status = status;
         this.currentDate = currentDate;
         this.currentMonth = currentMonth;
+    }
+    @Ignore
+    public Habit(String title, int reminderHour, int reminderMin, boolean status) {
+        this.title = title;
+        this.reminderHour = reminderHour;
+        this.reminderMin = reminderMin;
+        this.status = status;
     }
 }

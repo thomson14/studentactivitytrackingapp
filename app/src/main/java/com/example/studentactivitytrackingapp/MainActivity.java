@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
+import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
 import com.example.studentactivitytrackingapp.noteTaking.NoteTakingActivity;
 import com.example.studentactivitytrackingapp.todoList.ToDoList;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
 
     //our activity
-    CardView Cardtodolist,cardNoteTaking;
+    CardView Cardtodolist,cardNoteTaking,cardHabitTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cardHabitTracker = findViewById(R.id.card_view_habit);
+        cardHabitTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, HabitTrackerActivity.class);
+                startActivity(in);
+            }
+        });
+
 
 
         sNavigationDrawer = findViewById(R.id.navigationDrawer);

@@ -26,7 +26,7 @@ public class HabitRepository {
     }
 
     public void  delete(Habit habit){
-         new UpdateHabitAsyncTask(habitDao).execute(habit);
+         new DeleteNoteAsyncTask(habitDao).execute(habit);
     }
 
     public void deleteAllHabits(){
