@@ -1,21 +1,24 @@
 package com.example.studentactivitytrackingapp.noteTaking;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.studentactivitytrackingapp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -26,6 +29,7 @@ public class NoteTakingActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     public static final int NOTE_REQUEST = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
+    private LifecycleOwner LifecycleOwner;
 
 
     @Override
@@ -50,7 +54,7 @@ public class NoteTakingActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
+        noteViewModel.getAllNotes().observeForever( new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
                 //update Recycler view
@@ -100,8 +104,8 @@ public class NoteTakingActivity extends AppCompatActivity {
             Note note = new Note(title, desc);
             noteViewModel.insert(note);
 
-            Log.d(TAG, "onActivityResult: Note Title "+ note.getTitle() + " Note description "+ note.getDescription()
-              + " Note ID " + note.getId()
+            Log.d(TAG, "onActivityResult: Note Title " + note.getTitle() + " Note description " + note.getDescription()
+                    + " Note ID " + note.getId()
 
             );
             Toast.makeText(this, " NOTE SAVED ", Toast.LENGTH_SHORT).show();
@@ -119,7 +123,7 @@ public class NoteTakingActivity extends AppCompatActivity {
             Note note = new Note(title, desc);
             note.setId(id);
             noteViewModel.update(note);
-            Log.d(TAG, "onActivityResult: Note Title "+ note.getTitle() + " Note description "+ note.getDescription()
+            Log.d(TAG, "onActivityResult: Note Title " + note.getTitle() + " Note description " + note.getDescription()
                     + " Note ID " + note.getId()
 
             );
@@ -131,3 +135,4 @@ public class NoteTakingActivity extends AppCompatActivity {
         }
     }
 }
+

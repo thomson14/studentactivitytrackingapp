@@ -1,11 +1,13 @@
 package com.example.studentactivitytrackingapp;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
