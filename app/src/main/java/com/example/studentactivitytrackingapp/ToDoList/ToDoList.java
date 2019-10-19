@@ -1,4 +1,4 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.ToDoList;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -10,10 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.studentactivitytrackingapp.R;
+import com.example.studentactivitytrackingapp.ToDo;
 
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class ToDoList extends AppCompatActivity {
         fabtodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(ToDoList.this,AddToDoListActivity.class);
+                Intent it = new Intent(ToDoList.this, AddToDoListActivity.class);
                 startActivityForResult(it,TODO_REQUEST);
             }
         });

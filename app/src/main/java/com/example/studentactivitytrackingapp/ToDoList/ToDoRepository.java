@@ -1,8 +1,12 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.ToDoList;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
+
+import com.example.studentactivitytrackingapp.ToDo;
+import com.example.studentactivitytrackingapp.ToDoDao;
+import com.example.studentactivitytrackingapp.ToDoDatabase;
 
 import java.util.List;
 

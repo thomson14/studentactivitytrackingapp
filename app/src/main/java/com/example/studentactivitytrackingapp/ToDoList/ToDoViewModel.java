@@ -1,9 +1,12 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.ToDoList;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
+
+import com.example.studentactivitytrackingapp.ToDo;
+import com.example.studentactivitytrackingapp.ToDoList.ToDoRepository;
 
 import java.util.List;
 

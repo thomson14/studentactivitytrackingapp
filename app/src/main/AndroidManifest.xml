@@ -17,10 +17,10 @@
         <activity android:name=".NoteTakingActivity"
             android:launchMode="singleTop"
             />
-        <activity android:name=".AddToDoListActivity"
-            android:parentActivityName=".ToDoList"
+        <activity android:name=".ToDoList.AddToDoListActivity"
+            android:parentActivityName=".ToDoList.ToDoList"
             ></activity>
-        <activity android:name=".ToDoList"
+        <activity android:name=".ToDoList.ToDoList"
             android:launchMode="singleTop"
             />
         <activity android:name=".MainActivity" />
