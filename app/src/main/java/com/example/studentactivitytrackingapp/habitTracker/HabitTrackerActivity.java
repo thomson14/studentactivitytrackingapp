@@ -37,7 +37,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
 
         addHabit = findViewById(R.id.addHabitfab);
         dateToday = c.get(Calendar.DATE);
-        monthToday = c.get(Calendar.MONTH);
+        monthToday = c.get(Calendar.MONTH );
 
         final RecyclerView habitTrackerRecyclerView = findViewById(R.id.recycler_view_habit);
         habitTrackerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,6 +77,12 @@ public class HabitTrackerActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(habitTrackerRecyclerView);
 
+        adapter.setOnItemClickListener(new HabitAdapter.OnItemClickListner() {
+            @Override
+            public void onItemClick(Habit habit) {
+
+            }
+        });
         addHabit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +102,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
            int reminderHour = data.getIntExtra(AddHabitActivity.EXTRA_SELECTED_HOUR,12);
            int reminderMinute = data.getIntExtra(AddHabitActivity.EXTRA_SELECTED_MINUTE,20);
 
-           Habit habit = new Habit(habitName,reminderHour,reminderMinute,false,dateToday,monthToday);
+           Habit habit = new Habit(habitName,reminderHour,reminderMinute,false,dateToday,monthToday+1);
            habitViewModel.insert(habit);
 
             Toast.makeText(this,"Habit Saved",Toast.LENGTH_SHORT).show();

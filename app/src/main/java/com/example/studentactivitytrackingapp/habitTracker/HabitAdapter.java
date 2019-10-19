@@ -31,6 +31,8 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
     Context context;
     private  HabitViewModel habitViewModel;
 
+    private  OnItemClickListner listner;
+
     public  HabitAdapter(Context context){
         this.context = context;
         habitViewModel= ViewModelProviders.of((FragmentActivity) context).get(HabitViewModel.class);
@@ -56,10 +58,8 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.d(TAG, "onCheckedChanged: isChecked" + isChecked + "at position "+ i + " ID " + currentHabit.getId());
-
                 currentHabit.setStatus(isChecked);
                 habitViewModel.update(currentHabit);
-
             }
         });
 
@@ -93,7 +93,25 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
             setReminderTime = itemView.findViewById(R.id.set_reminder_time);
             setReminderIcon = itemView.findViewById(R.id.set_reminder_icon);
             reminderTime = itemView.findViewById(R.id.reminder_time_text);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listner != null && position != RecyclerView.NO_POSITION)
+                    listner.onItemClick(habits.get(position));
+                }
+            });
         }
 
+
+    }
+
+    public  interface  OnItemClickListner{
+        void onItemClick(Habit habit);
+    }
+
+    public void setOnItemClickListener(OnItemClickListner listener){
+       this.listner = listener;
     }
 }
