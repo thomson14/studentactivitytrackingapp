@@ -1,32 +1,28 @@
 package com.example.studentactivitytrackingapp;
 
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.util.SparseBooleanArray;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class ToDoList extends AppCompatActivity {
 
-    EditText edt_work,edt_hour,edt_Minute;
-    Button btn_add;
-    ListView lv_List;
-    private ArrayList<ToDoItem> array;
-    private ToDoAdapter adapter;
-
+    private ToDoViewModel todoViewModel;
+    public static final int TODO_REQUEST =1;
+    public static final int EDIT_TODO_REQUEST =2;
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -39,91 +35,105 @@ public class ToDoList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("To DO List");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
+        FloatingActionButton fabtodo = findViewById(R.id.add_to_do_fab);
 
-        btn_add = findViewById(R.id.btn_add);
-        edt_work = findViewById(R.id.edt_work);
-        edt_hour = findViewById(R.id.Edit_hour);
-        edt_Minute = findViewById(R.id.edit_minut);
-        lv_List = findViewById(R.id.list_view);
-
-        array = new ArrayList<ToDoItem>();
-        adapter = new ToDoAdapter(this, R.layout.to_do_custom_list_view,array);
-        lv_List.setAdapter(adapter);
-        Log.d("data","adapter"+adapter);
-
-        btn_add.setOnClickListener(new View.OnClickListener() {
+        fabtodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddWork();
+                Intent it = new Intent(ToDoList.this,AddToDoListActivity.class);
+                startActivityForResult(it,TODO_REQUEST);
+            }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_To_do);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        final ToDoAdapter adapter = new ToDoAdapter();
+        recyclerView.setAdapter(adapter);
+
+        todoViewModel = ViewModelProviders.of(this).get(ToDoViewModel.class);
+        todoViewModel.getAllTodos().observe(this, new Observer<List<ToDo>>() {
+            @Override
+            public void onChanged(@Nullable List<ToDo> todo) {
+                //update Recycler view
+                adapter.setDoTo(todo);
+            }
+        });
+
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                todoViewModel.delete(adapter.getToDoAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(ToDoList.this,"ToDoList DELETED",Toast.LENGTH_SHORT).show();
+
+            }
+        }).attachToRecyclerView(recyclerView);
+
+
+        adapter.setOnItemClickListener(new ToDoAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ToDo todo) {
+
+
+                Intent intent = new Intent(ToDoList.this,AddToDoListActivity.class);
+                intent.putExtra(AddToDoListActivity.EXTRA_ID,todo.getId());
+                intent.putExtra(AddToDoListActivity.EXTRA_TITLE,todo.getTitle());
+                // intent.putExtra(String.valueOf(AddNoteActivity.EXTRA_CHECKBOX),note.getCheckbox());
+                intent.putExtra(String.valueOf(AddToDoListActivity.EXTRA_CHECKBOX), false);
+
+                startActivityForResult(intent,EDIT_TODO_REQUEST);
+
             }
         });
 
 
     }
 
-    public void AddWork() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == TODO_REQUEST && resultCode == RESULT_OK){
+            String title = data.getStringExtra(AddToDoListActivity.EXTRA_TITLE);
+            Boolean check = Boolean.valueOf(data.getStringExtra(String.valueOf(AddToDoListActivity.EXTRA_CHECKBOX)));
 
-        if (edt_work.getText().toString().equals("") || edt_hour.getText().toString().equals("") || edt_Minute.getText().toString().equals("")) {
+            ToDo todo = new ToDo(title,check);
+            todoViewModel.insert(todo);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(ToDoList.this);
-            builder.setTitle("Info Missing");
-            builder.setMessage("please add Info...");
-            builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-            builder.create().show();
-        } else {
-            final String work = edt_work.getText().toString();
-            final String time = edt_hour.getText().toString() + "h :" + edt_Minute.getText().toString() + "m";
-            ToDoItem item = new ToDoItem(work, time);
-            array.add(0, item);
-            adapter.notifyDataSetChanged();
-            edt_work.setText("");
-            edt_hour.setText("");
-            edt_Minute.setText("");
-            edt_work.requestFocus();
-
-
+            Toast.makeText(this," LIST SAVED ",Toast.LENGTH_SHORT).show();
         }
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+        else  if(requestCode == EDIT_TODO_REQUEST && resultCode == RESULT_OK){
+            int id = data.getIntExtra(AddToDoListActivity.EXTRA_ID,-1);
 
-        getMenuInflater().inflate(R.menu.to_do_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-        if (id == R.id.btn_delete)
-        {
-            if (array.size() > 0)
-            {
-                for (int i = 0; i < array.size(); i++)
-                {
-                    if (array.size() < i) {
-                        break;
-                    }
-                    if (array.get(i).isChecked()) {
-                        array.remove(i);
-                        adapter.notifyDataSetChanged();
-                        continue;
-                    }
-                }
+            if(id == -1){
+                Toast.makeText(this," LIST CAN'T BE UPDATED",Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            String title = data.getStringExtra(AddToDoListActivity.EXTRA_TITLE);
+            Boolean check = Boolean.valueOf(data.getStringExtra(String.valueOf(AddToDoListActivity.EXTRA_CHECKBOX)));
+
+            ToDo toDo = new ToDo(title,check);
+            toDo.setId(id);
+            todoViewModel.update(toDo);
+
+            Toast.makeText(this," LIST  UPDATED",Toast.LENGTH_SHORT).show();
+
         }
-        return super.onOptionsItemSelected(item);
+
+        else {
+            Toast.makeText(this," List Not Saved ",Toast.LENGTH_LONG).show();
+        }
     }
+
+
 }

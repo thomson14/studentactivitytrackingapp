@@ -1,63 +1,83 @@
 package com.example.studentactivitytrackingapp;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
+public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ToDoHolder> {
 
-    private Activity context;
-    private int id;
-    private ArrayList<ToDoItem> array;
-
-
-    public ToDoAdapter(@NonNull Activity context, int resource, @NonNull ArrayList<ToDoItem> objects) {
-        super(context, resource, objects);
-
-                this.context=context;
-                this.id = resource;
-                this.array = objects;
-    }
+    private List<ToDo> todos = new ArrayList<>();
+    private OnItemClickListener listener;
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public ToDoHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        if (convertView==null)
-        {
-            LayoutInflater inflater  = context.getLayoutInflater();
-            convertView= inflater.inflate(id,null);
-        }
-
-        final ToDoItem item = array.get(position);
-        TextView txtWork = (TextView) convertView.findViewById(R.id.txt_work);
-        TextView txtTime = convertView.findViewById(R.id.txt_time);
-        CheckBox checkBox = convertView.findViewById(R.id.cbx_work);
-
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                item.setChecked(isChecked);
-            }
-        });
-
-
-        txtWork.setText(item.getWork());
-        txtTime.setText(item.getTime());
-        checkBox.setChecked(item.isChecked());
-
-
-        return convertView;
+        View itemView = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.todo_item,viewGroup,false);
+        return new ToDoHolder(itemView);
     }
+
+    @Override
+    public void onBindViewHolder(@NonNull ToDoHolder toDoHolder, int i) {
+
+                ToDo currentToDO = todos.get(i);
+                toDoHolder.textView_title.setText(currentToDO.getTitle());
+                toDoHolder.text_check.setChecked(currentToDO.isCheckable_list());
+    }
+
+    @Override
+    public int getItemCount() {
+        return todos.size();
+    }
+
+    public class ToDoHolder extends RecyclerView.ViewHolder {
+
+         TextView textView_title;
+        //private TextView textView_description;
+        CheckBox text_check;
+
+        public ToDoHolder(@NonNull View itemView) {
+            super(itemView);
+
+            textView_title = itemView.findViewById(R.id.text_view_title_todo);
+            text_check = itemView.findViewById(R.id.text_view_desc);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listener != null && position!=RecyclerView.NO_POSITION)
+                        listener.onItemClick(todos.get(position));
+
+                }
+            });
+        }
+    }
+
+    public  interface OnItemClickListener {
+        void onItemClick(ToDo todo);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener = listener;
+    }
+
+    public  void setDoTo (List<ToDo> todos){
+        this.todos  = todos;
+        notifyDataSetChanged();
+    }
+
+    public ToDo getToDoAt(int i){
+        return  todos.get(i);
+    }
+
+
 }

@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentClass = Home.class;
                         break;
                     }
-                    case 1: {
+                   case 1: {
                         fragmentClass = ToDoList.class;
                         break;
                     }
