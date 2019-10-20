@@ -17,7 +17,6 @@
         <activity
             android:name=".NoteTakingActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".ToDoList" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Register_Activity" />
         <activity android:name=".Login_Activity" />

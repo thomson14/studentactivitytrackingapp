@@ -104,7 +104,6 @@ public class StudyTimerActivity extends AppCompatActivity {
         resetTimer();
     }
 
-
     private void startTimer(){
         countDownTimer = new CountDownTimer(getTimeLeftInMillis,1000) {
             @Override
