@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.studentactivitytrackingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,24 +19,34 @@
         <activity
             android:name=".habitTracker.HabitTrackerActivity"
             android:launchMode="singleTop" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+
+        <activity android:name=".ToDoList.AddToDoListActivity"
+            android:parentActivityName=".ToDoList.ToDoListActivity"
+            ></activity>
+        <activity android:name=".ToDoList.ToDoListActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Home" />
         <activity
             android:name=".noteTaking.AddNoteActivity"
             android:parentActivityName=".noteTaking.NoteTakingActivity" />
         <activity
             android:name=".noteTaking.NoteTakingActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".MainActivity" />
+
         <activity android:name=".authentication.Register_Activity" />
         <activity android:name=".authentication.Login_Activity" />
-        <activity android:name=".Home" />
-        <activity android:name=".authentication.Log_and_Regis">
 
+        <activity android:name=".authentication.Log_and_Regis">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
