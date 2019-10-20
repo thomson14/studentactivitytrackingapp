@@ -13,6 +13,7 @@ import android.view.View;
 import com.example.studentactivitytrackingapp.ToDoList.ToDoListActivity;
 import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
 import com.example.studentactivitytrackingapp.noteTaking.NoteTakingActivity;
+import com.example.studentactivitytrackingapp.studyTimer.StudyTimerActivity;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
