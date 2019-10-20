@@ -51,6 +51,7 @@ public abstract class HabitDatabase extends RoomDatabase {
             habitDao.insert(new Habit("Polygraphy",21,24,false,11,10));
             habitDao.insert(new Habit("Music",20,24,false,17,10));
             habitDao.insert(new Habit("Worship",15,14,false,18,10));
+            habitDao.insert(new Habit("Typing Practice",15,14,false,18,10));
 
             return null;
         }
