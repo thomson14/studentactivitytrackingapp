@@ -27,5 +27,10 @@ public interface HabitDao {
 
     @Query("SELECT * FROM habit_table")
     LiveData<List<Habit>> getAllHabits();
+
+    @Query("SELECT currentDate FROM habit_table WHERE title =:title")
+    List<Integer> getDates(String title);
+
+
 }
 

@@ -12,7 +12,6 @@ import android.view.View;
 
 import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
 import com.example.studentactivitytrackingapp.noteTaking.NoteTakingActivity;
-import com.example.studentactivitytrackingapp.todoList.ToDoList;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
@@ -39,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, ToDoList.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, ToDoList.class);
+//                startActivity(intent);
             }
         });
 
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 1: {
-                        fragmentClass = ToDoList.class;
+                       // fragmentClass = ToDoList.class;
                         break;
                     }
                   /*  case 2: {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studentactivitytrackingapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,14 +35,16 @@ public class HabitTrackerActivity extends AppCompatActivity {
     private  int monthToday;
     Calendar c = Calendar.getInstance();
     private  HabitViewModel habitViewModel;
-    FloatingActionButton addHabit;
+    FloatingActionButton addHabit,delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habit_tracker);
+        AndroidThreeTen.init(this);
 
         addHabit = findViewById(R.id.addHabitfab);
+        delete = findViewById(R.id.delete);
         dateToday = c.get(Calendar.DATE);
         monthToday = c.get(Calendar.MONTH );
 
@@ -86,6 +90,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Habit habit) {
 
+
             }
         });
         addHabit.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +99,13 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 Intent in = new Intent(HabitTrackerActivity.this,AddHabitActivity.class);
                 startActivityForResult(in,HABIT_REQUEST);
 
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                habitViewModel.deleteAllHabits();
             }
         });
     }

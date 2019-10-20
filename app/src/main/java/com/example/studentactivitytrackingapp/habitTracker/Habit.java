@@ -72,4 +72,7 @@ public class Habit {
     public Habit(boolean status){
         this.status = status;
     }
+
+    @Ignore
+    public Habit() {}
 }

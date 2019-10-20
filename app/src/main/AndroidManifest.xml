@@ -13,30 +13,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name=".habitTracker.CalenderView"></activity>
+        <activity android:name=".habitTracker.HabitCalendar"></activity>
         <activity
             android:name=".habitTracker.AddHabitActivity"
             android:parentActivityName=".habitTracker.HabitTrackerActivity" />
         <activity
             android:name=".habitTracker.HabitTrackerActivity"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".noteTaking.AddNoteActivity"
             android:parentActivityName=".noteTaking.NoteTakingActivity" />
         <activity
             android:name=".noteTaking.NoteTakingActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".todoList.ToDoList" />
         <activity android:name=".MainActivity" />
         <activity android:name=".authentication.Register_Activity" />
         <activity android:name=".authentication.Login_Activity" />
         <activity android:name=".Home" />
         <activity android:name=".authentication.Log_and_Regis">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 

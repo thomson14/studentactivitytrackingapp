@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studentactivitytrackingapp.R;
 
-public class CalenderView extends AppCompatActivity {
+public class HabitCalendar extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calender_view);
+        setContentView(R.layout.habit_calendar);
     }
 }
