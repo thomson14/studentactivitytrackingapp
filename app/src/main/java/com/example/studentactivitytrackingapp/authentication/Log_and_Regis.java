@@ -1,10 +1,13 @@
-package com.example.studentactivitytrackingapp;
+package com.example.studentactivitytrackingapp.authentication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.studentactivitytrackingapp.R;
 
 public class Log_and_Regis extends AppCompatActivity {
 
@@ -22,14 +25,14 @@ public class Log_and_Regis extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Log_and_Regis.this,Login_Activity.class));
+                startActivity(new Intent(Log_and_Regis.this, Login_Activity.class));
             }
         });
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Log_and_Regis.this,Register_Activity.class));
+                startActivity(new Intent(Log_and_Regis.this, Register_Activity.class));
             }
         });
 

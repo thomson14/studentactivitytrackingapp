@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context=".Log_and_Regis">
+    tools:context=".authentication.Log_and_Regis">
 
     <TextView
         android:layout_width="wrap_content"

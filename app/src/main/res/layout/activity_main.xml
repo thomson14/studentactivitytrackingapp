@@ -3,47 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer
+        android:id="@+id/navigationDrawer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/navigationDrawer">
+        android:layout_height="match_parent">
+
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                app:cardCornerRadius="30dp"
                 android:layout_marginTop="30dp"
                 android:padding="30dp"
                 android:scaleX="1.9"
+                app:cardCornerRadius="30dp"
                 app:contentPadding="10dp"
 
-               >
+                >
+
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/todolist"/>
+                    android:src="@drawable/todolist" />
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_note"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                app:cardCornerRadius="30dp"
                 android:layout_marginTop="180dp"
                 android:padding="30dp"
                 android:scaleX="1.9"
+                app:cardCornerRadius="30dp"
                 app:contentPadding="10dp"
 
                 >
@@ -51,22 +53,57 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/todolist"/>
+                    android:src="@drawable/todolist" />
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_habit"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="300dp"
+                android:padding="30dp"
+                android:scaleX="1.9"
+                app:cardCornerRadius="30dp"
+                app:contentPadding="10dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/todolist" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_study"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="430dp"
+                android:padding="30dp"
+                android:scaleX="1.9"
+                app:cardCornerRadius="30dp"
+                app:contentPadding="10dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/todolist" />
+
+
+            </androidx.cardview.widget.CardView>
 
 
         </FrameLayout>
 
 
-
     </com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer>
-
-
-
-
 
 
 </LinearLayout>

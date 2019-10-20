@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".ToDoList.AddToDoListActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/bar_layout"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/title_To_do"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            android:textSize="25dp"
+            android:inputType="text"
+            android:hint="Add Task"
+            />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12.5dp"
+            android:layout_toRightOf="@+id/title_To_do"
+            android:padding="8dp"
+            />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="SAVE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="90dp"
+        android:padding="16dp"
+        android:id="@+id/saveButtonToDo"
+        android:background="@color/colorPrimary"
+        />
+
+
+</LinearLayout>

@@ -1,13 +1,19 @@
 package com.example.studentactivitytrackingapp;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
 
+import com.example.studentactivitytrackingapp.ToDoList.ToDoListActivity;
+import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
+import com.example.studentactivitytrackingapp.noteTaking.NoteTakingActivity;
+import com.example.studentactivitytrackingapp.studyTimer.StudyTimerActivity;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
@@ -21,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
 
     //our activity
-    CardView Cardtodolist,cardNoteTaking;
+    CardView Cardtodolist,cardNoteTaking,cardHabitTracker,cardStudyTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         Cardtodolist = findViewById(R.id.card_view);
         cardNoteTaking = findViewById(R.id.card_view_note);
+        cardStudyTimer = findViewById(R.id.card_view_study);
         Cardtodolist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,ToDoList.class);
+                Intent intent = new Intent(MainActivity.this, ToDoListActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,6 +53,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cardStudyTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, StudyTimerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        cardHabitTracker = findViewById(R.id.card_view_habit);
+        cardHabitTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, HabitTrackerActivity.class);
+                startActivity(in);
+            }
+        });
+
 
 
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
@@ -81,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
                         fragmentClass = Home.class;
                         break;
                     }
-                    case 1: {
-                        fragmentClass = ToDoList.class;
+                   case 1: {
+                        fragmentClass = ToDoListActivity.class;
                         break;
                     }
                   /*  case 2: {
