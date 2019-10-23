@@ -21,7 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rengwuxian.materialedittext.MaterialAutoCompleteTextView;
 
-public class Login_Activity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     MaterialAutoCompleteTextView emailL,passwordL;
     Button btn_loginL;
@@ -57,7 +57,7 @@ public class Login_Activity extends AppCompatActivity {
                 String txt_password = passwordL.getText().toString();
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
-                    Toast.makeText(Login_Activity.this,"All Fields Are Requierds",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"All Fields Are Requierds",Toast.LENGTH_SHORT).show();
 
                 }else {
 
@@ -67,12 +67,12 @@ public class Login_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 loginProgress.setVisibility(View.INVISIBLE);
-                                Intent intent = new Intent(Login_Activity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();
                             }else {
-                                Toast.makeText(Login_Activity.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

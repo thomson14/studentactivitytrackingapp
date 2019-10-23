@@ -23,7 +23,11 @@
         <activity
             android:name=".habitTracker.HabitTrackerActivity"
             android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -44,15 +48,11 @@
             android:name=".noteTaking.NoteTakingActivity"
             android:launchMode="singleTop" />
 
-        <activity android:name=".authentication.Register_Activity" />
-        <activity android:name=".authentication.Login_Activity" />
+        <activity android:name=".authentication.RegisterActivity" />
+        <activity android:name=".authentication.LoginActivity" />
 
-        <activity android:name=".authentication.Log_and_Regis">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".authentication.LoginAndRegister">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

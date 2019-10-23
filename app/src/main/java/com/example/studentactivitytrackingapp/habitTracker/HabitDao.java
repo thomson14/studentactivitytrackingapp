@@ -7,7 +7,6 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-
 import java.util.List;
 
 @Dao
@@ -28,9 +27,8 @@ public interface HabitDao {
     @Query("SELECT * FROM habit_table")
     LiveData<List<Habit>> getAllHabits();
 
-    @Query("SELECT currentDate FROM habit_table WHERE title =:title")
-    List<Integer> getDates(String title);
-
+//    @Query("SELECT dates FROM habit_table WHERE id = :id")
+//    List<Integer> getAllDates(int id);
 
 }
 

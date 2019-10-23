@@ -24,7 +24,7 @@ import com.rengwuxian.materialedittext.MaterialAutoCompleteTextView;
 
 import java.util.HashMap;
 
-public class Register_Activity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     MaterialAutoCompleteTextView username, email, phone_num, gender, password;
     Button btn_Register;
@@ -72,11 +72,11 @@ public class Register_Activity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_phone) || TextUtils.isEmpty(txt_gender) || TextUtils.isEmpty(txt_password)) {
 
-                    Toast.makeText(Register_Activity.this, "All Fields are Required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "All Fields are Required", Toast.LENGTH_SHORT).show();
 
                 } else if (txt_password.length() < 6) {
 
-                    Toast.makeText(Register_Activity.this, "Password must be at 6 character", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Password must be at 6 character", Toast.LENGTH_SHORT).show();
 
                 } else {
                     register(txt_username, txt_email, txt_phone, txt_gender, txt_password);
@@ -117,7 +117,7 @@ public class Register_Activity extends AppCompatActivity {
 
                                     if (task.isSuccessful()) {
 
-                                        Intent intent = new Intent(Register_Activity.this, Login_Activity.class);
+                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                         finish();
@@ -129,7 +129,7 @@ public class Register_Activity extends AppCompatActivity {
 
 
                         } else {
-                            Toast.makeText(Register_Activity.this, "You Can't register with this email or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "You Can't register with this email or password", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
