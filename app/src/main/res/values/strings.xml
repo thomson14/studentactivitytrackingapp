@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">student activity tracking app</string>
+    <string name="week_mode">Week mode</string>
+    <string name="example_1_title">CALENDAR</string>
 </resources>

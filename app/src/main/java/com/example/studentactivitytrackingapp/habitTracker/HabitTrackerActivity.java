@@ -98,23 +98,11 @@ public class HabitTrackerActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<RecordHabit> recordHabits) {
 
-              //  for(RecordHabit recordHabit : recordHabits){
-                 //   Log.d(TAG, "onChanged: RECORD HABIT TITLE  " + recordHabit.getTitle() +"  ");
-//                            if(recordHabit.getTitle().equals(habit.getTitle())){
-////                                String timestamps =  recordHabitViewModel.getTimestamp(recordHabit);
-////                                Log.d(TAG, "onChanged: TIMESTAMP******** "+  timestamps);
-//                            }
-
                 }
-
-
-          //  }
         });
         adapter.setOnItemClickListener(new HabitAdapter.OnItemClickListner() {
             @Override
             public void onItemClick(final Habit habit) {
-
-//                RecordHabit re = new RecordHabit(habit.getTitle(),"");
                 Log.d(TAG, "onChanged: TITLE ******** "+ habit.getTitle());
                 //TODO:: When the List item is clicked , I need to fetch all the timestamps for that particular title;
                  LiveData<List<RecordHabit>> record = recordHabitViewModel.getAllRecords();
@@ -123,16 +111,18 @@ public class HabitTrackerActivity extends AppCompatActivity {
 
                 Log.d(TAG, "onItemClick: RECORD#######"+ record);
                 Log.d(TAG, "onItemClick: RECORD HABITS ********"+ recordHabits);
-     //           assert recordHabits != null;
                 for(RecordHabit recordHabit : recordHabits){
                     if(habit.getTitle().equals(recordHabit.getTitle())){
                         Log.d(TAG, "onItemClick: TIME STAMP For "+habit.getTitle() +" " + recordHabit.getTimeStamp());
+//                        fetchDate(recordHabit.getTimeStamp());
+//                        fetchMonth(recordHabit.getTimeStamp());
+
+                        Intent in  = new Intent(HabitTrackerActivity.this,HabitCalendar.class);
+                        startActivity(in);
+
 
                     }
                 }
-//                int sizw = record.getValue().size();
-//                Log.d(TAG, "onItemClick: All records *******"+ record + " SIZE " + sizw);
-//
 
 
             }
@@ -152,6 +142,14 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 habitViewModel.deleteAllHabits();
             }
         });
+    }
+
+    private void fetchMonth(String timeStamp) {
+
+    }
+
+    private void fetchDate(String timeStamp) {
+
     }
 
     @Override
