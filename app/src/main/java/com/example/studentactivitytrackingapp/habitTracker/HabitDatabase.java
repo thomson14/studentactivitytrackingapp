@@ -44,14 +44,11 @@ public abstract class HabitDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            habitDao.insert(new Habit("Sky Diving",12,24,false));
-            habitDao.insert(new Habit("Guitar Practice",2,24,false));
-            habitDao.insert(new Habit("Rolls",16,11,false));
-            habitDao.insert(new Habit("Gym",11,11,false));
-            habitDao.insert(new Habit("Polygraphy",21,24,false));
-            habitDao.insert(new Habit("Music",20,24,false));
-            habitDao.insert(new Habit("Worship",15,14,false));
-            habitDao.insert(new Habit("Typing Practice",15,14,false));
+            habitDao.insert(new Habit("Yoga",12,24,false));
+            habitDao.insert(new Habit("Exercise",2,24,false));
+            habitDao.insert(new Habit("Cycling",16,11,false));
+            habitDao.insert(new Habit("Water",11,11,false));
+
 
             return null;
         }

@@ -29,7 +29,7 @@ public interface RecordHabitDao {
     String getAllTimeStamp(String title);
 
     @Query("DELETE FROM habit_record")
-    void deleteAllHabit();
+    void deleteAllRecordHabit();
 
     @Query("DELETE FROM habit_record WHERE title = :title")
     void deleteAllWithTitle(String title);

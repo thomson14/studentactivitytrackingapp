@@ -41,6 +41,10 @@ public class RecordHabitViewModel extends AndroidViewModel {
         return  timestamp;
     }
 
+    public void deleteAllRecords(){
+        recordHabitRepository.deleteAllRecords();
+    }
+
 
     public LiveData<List<RecordHabit>> getAllRecords(){
         return allRecords;

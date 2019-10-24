@@ -29,11 +29,11 @@ public class RecordHabitRepository {
         new UpdateRecordAsyncTask(habitDao).execute(recordHabit);
     }
     public  void delete(RecordHabit recordHabit){
-         new DeleteRecordAsyncTask(habitDao).execute(recordHabit);
+        new DeleteRecordAsyncTask(habitDao).execute(recordHabit);
     }
 
     public void deleteAllRecords(){
-
+        new DeleteAllHabitAsyncTask(habitDao).execute();
     }
 
     public void deleteAllWithTitle(RecordHabit recordHabit){
@@ -128,9 +128,22 @@ public class RecordHabitRepository {
         }
     }
 
+    private static class DeleteAllHabitAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        private RecordHabitDao habitDao;
+
+        private DeleteAllHabitAsyncTask(RecordHabitDao habitDao) {
+            this.habitDao = habitDao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            habitDao.deleteAllRecordHabit();
+            return null;
+        }
+    }
 
 
 
 
-
- }
+}

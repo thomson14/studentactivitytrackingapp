@@ -35,67 +35,64 @@ public abstract  class RecordHabitDatabase extends RoomDatabase {
           private RecordHabitDao recordHabitDao;
 
           private PopulateDatbaseAsyncTask(RecordHabitDatabase database){
-              recordHabitDao.insert(new RecordHabit("Yoga","1571923625"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1571837225"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1571318825"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1571751113"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1571405557"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1571319157"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1571401957"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1568813557"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1569850440"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1569764040"));
-              recordHabitDao.insert(new RecordHabit("Yoga","1566480880"));
-
-              recordHabitDao.insert(new RecordHabit("Exercise","1571923625"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1571837225"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1571318825"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1571751113"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1571405557"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1571319157"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1571401957"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1568813557"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1569850440"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1569764040"));
-              recordHabitDao.insert(new RecordHabit("Exercise","1566480880"));
-
-              recordHabitDao.insert(new RecordHabit("Water","1571923625"));
-              recordHabitDao.insert(new RecordHabit("Water","1571837225"));
-              recordHabitDao.insert(new RecordHabit("Water","1571318825"));
-              recordHabitDao.insert(new RecordHabit("Water","1571751113"));
-              recordHabitDao.insert(new RecordHabit("Water","1571405557"));
-              recordHabitDao.insert(new RecordHabit("Water","1571319157"));
-              recordHabitDao.insert(new RecordHabit("Water","1571401957"));
-              recordHabitDao.insert(new RecordHabit("Water","1568813557"));
-              recordHabitDao.insert(new RecordHabit("Water","1569850440"));
-              recordHabitDao.insert(new RecordHabit("Water","1569764040"));
-              recordHabitDao.insert(new RecordHabit("Water","1566480880"));
-
-              recordHabitDao.insert(new RecordHabit("Cycling","1571923625"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1571837225"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1571318825"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1571751113"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1571405557"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1571319157"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1571401957"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1568813557"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1569850440"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1569764040"));
-              recordHabitDao.insert(new RecordHabit("Cycling","1566480880"));
-
-
-
-
-
-
-
-
-
               recordHabitDao = database.recordHabitDao();
+
           }
 
           @Override
           protected Void doInBackground(Void... voids) {
+
+//                recordHabitDao.insert(new RecordHabit("Yoga","1571788800545"));
+////              //19th october
+//                recordHabitDao.insert(new RecordHabit("Yoga","1571443200545"));
+//////            13 october
+//                recordHabitDao.insert(new RecordHabit("Yoga","1570924800645"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1571751113"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1571405557"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1571319157"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1571401957"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1568813557"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1569850440"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1569764040"));
+//              recordHabitDao.insert(new RecordHabit("Yoga","1566480880"));
+//
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571923625"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571837225"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571318825"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571751113"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571405557"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571319157"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1571401957"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1568813557"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1569850440"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1569764040"));
+//              recordHabitDao.insert(new RecordHabit("Exercise","1566480880"));
+//
+//              recordHabitDao.insert(new RecordHabit("Water","1571923625"));
+//              recordHabitDao.insert(new RecordHabit("Water","1571837225"));
+//              recordHabitDao.insert(new RecordHabit("Water","1571318825"));
+//              recordHabitDao.insert(new RecordHabit("Water","1571751113"));
+//              recordHabitDao.insert(new RecordHabit("Water","1571405557"));
+//              recordHabitDao.insert(new RecordHabit("Water","1571319157"));
+//              recordHabitDao.insert(new RecordHabit("Water","1571401957"));
+//              recordHabitDao.insert(new RecordHabit("Water","1568813557"));
+//              recordHabitDao.insert(new RecordHabit("Water","1569850440"));
+//              recordHabitDao.insert(new RecordHabit("Water","1569764040"));
+//              recordHabitDao.insert(new RecordHabit("Water","1566480880"));
+//
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571923625"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571837225"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571318825"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571751113"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571405557"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571319157"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1571401957"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1568813557"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1569850440"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1569764040"));
+//              recordHabitDao.insert(new RecordHabit("Cycling","1566480880"));
+
+
               return null;
           }
       }

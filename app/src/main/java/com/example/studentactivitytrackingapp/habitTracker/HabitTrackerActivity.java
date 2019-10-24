@@ -104,7 +104,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
         recordHabitViewModel.getAllRecords().observeForever(new Observer<List<RecordHabit>>() {
             @Override
             public void onChanged(List<RecordHabit> recordHabits) {
-                Log.d(TAG, "onChanged: IT CHANGED *************");
+              //  Log.d(TAG, "onChanged: IT CHANGED *************");
                     //TODO :: CLEAR THE HASH MAP HERE
 
                 }
@@ -113,7 +113,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(final Habit habit) {
                 flag =0;
-                Log.d(TAG, "onChanged: TITLE ******** "+ habit.getTitle());
+           //     Log.d(TAG, "onChanged: TITLE ******** "+ habit.getTitle());
                  LiveData<List<RecordHabit>> record = recordHabitViewModel.getAllRecords();
                  List<RecordHabit> recordHabits = record.getValue();
 
@@ -122,7 +122,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
 //                Log.d(TAG, "onItemClick: RECORD HABITS ********"+ recordHabits);
                 for(RecordHabit recordHabit : recordHabits){
                     if(habit.getTitle().equals(recordHabit.getTitle())){
-                        Log.d(TAG, "onItemClick: TIME STAMP For "+habit.getTitle() +" " + recordHabit.getTimeStamp());
+                    //    Log.d(TAG, "onItemClick: TIME STAMP For "+habit.getTitle() +" " + recordHabit.getTimeStamp());
                         hashMapTwo = makeMap(recordHabit.getTimeStamp());
 
                     }
@@ -151,6 +151,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 habitViewModel.deleteAllHabits();
+                recordHabitViewModel.deleteAllRecords();
             }
         });
     }
@@ -158,7 +159,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
     private void getAllMapData(HashMap<Integer, Integer> hashMapTwo) {
 
         for(Map.Entry<Integer,Integer> entry : hashMapTwo.entrySet()){
-          Log.d(TAG, "getAllMapData: KEY **  "+ entry.getKey() + "VALUE ** "+ entry.getValue());
+     //     Log.d(TAG, "getAllMapData: KEY **  "+ entry.getKey() + "VALUE ** "+ entry.getValue());
         }
     }
 
@@ -170,18 +171,18 @@ public class HabitTrackerActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeStampt);
         int  date = calendar.get(Calendar.DATE);
-        final int  month = calendar.get(Calendar.MONTH);
+       final int month = calendar.get(Calendar.MONTH);
 
-        Log.d(TAG, "HASHMAP "+ hashMap.get(month) +" makeMap: DATE "+ date + " Month "+ month + " TimeStamp " + timeStamp);
+    //    Log.d(TAG, "HASHMAP "+ hashMap.get(month) +" makeMap: DATE "+ date + " Month "+ month + " TimeStamp " + timeStamp);
 
         //TODO: : if date for that particular month already exists in the map (Like if once a date is
         // added for that month) don't again add it in the Map
         recordHabitViewModel.getAllRecords().observeForever(new Observer<List<RecordHabit>>() {
             @Override
             public void onChanged(List<RecordHabit> recordHabits) {
-                Log.d(TAG, "onChanged: IT CHANGED *************");
                 //TODO :: CLEAR THE HASH MAP HERE
-                if(hashMap.get(month) != null){
+               // int mom = month;
+                if(hashMap.get(month) != null ){
                     if(hashMap.get(month) == dateToday){
                         hashMap.clear();
                     }
@@ -192,7 +193,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
         if(hashMap.get(month) == null || hashMap.get(month) != date){
             flag++;
             hashMap.put(month,date);
-            Log.d(TAG, "makeMap: "+ hashMap.get(month)  + "  : " + date);
+          //  Log.d(TAG, "makeMap: "+ hashMap.get(month)  + "  : " + date);
         }
 
 
