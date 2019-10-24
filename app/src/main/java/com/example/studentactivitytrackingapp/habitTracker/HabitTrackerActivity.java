@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.Toast;
@@ -27,7 +30,9 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
@@ -40,6 +45,8 @@ public class HabitTrackerActivity extends AppCompatActivity {
     private RecordHabitViewModel recordHabitViewModel;
     FloatingActionButton addHabit, delete;
     int flag = 0;
+    HashMap<Integer, Integer> hashMap = new HashMap<>();
+    HashMap<Integer, Integer> hashMapTwo = new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,34 +104,38 @@ public class HabitTrackerActivity extends AppCompatActivity {
         recordHabitViewModel.getAllRecords().observeForever(new Observer<List<RecordHabit>>() {
             @Override
             public void onChanged(List<RecordHabit> recordHabits) {
+                Log.d(TAG, "onChanged: IT CHANGED *************");
+                    //TODO :: CLEAR THE HASH MAP HERE
 
                 }
         });
         adapter.setOnItemClickListener(new HabitAdapter.OnItemClickListner() {
             @Override
             public void onItemClick(final Habit habit) {
+                flag =0;
                 Log.d(TAG, "onChanged: TITLE ******** "+ habit.getTitle());
-                //TODO:: When the List item is clicked , I need to fetch all the timestamps for that particular title;
                  LiveData<List<RecordHabit>> record = recordHabitViewModel.getAllRecords();
                  List<RecordHabit> recordHabits = record.getValue();
 
 
-                Log.d(TAG, "onItemClick: RECORD#######"+ record);
-                Log.d(TAG, "onItemClick: RECORD HABITS ********"+ recordHabits);
+//                Log.d(TAG, "onItemClick: RECORD#######"+ record);
+//                Log.d(TAG, "onItemClick: RECORD HABITS ********"+ recordHabits);
                 for(RecordHabit recordHabit : recordHabits){
                     if(habit.getTitle().equals(recordHabit.getTitle())){
                         Log.d(TAG, "onItemClick: TIME STAMP For "+habit.getTitle() +" " + recordHabit.getTimeStamp());
-//                        fetchDate(recordHabit.getTimeStamp());
-//                        fetchMonth(recordHabit.getTimeStamp());
-
-                        Intent in  = new Intent(HabitTrackerActivity.this,HabitCalendar.class);
-                        startActivity(in);
-
+                        hashMapTwo = makeMap(recordHabit.getTimeStamp());
 
                     }
                 }
 
+               getAllMapData(hashMapTwo);
+//                Bundle bundle= new Bundle();
+//                bundle.putSerializable("SPARSE_ARRAY_KEY",hashMap);
+//                Intent in  = new Intent(HabitTrackerActivity.this,HabitCalendar.class);
+//                startActivity(in);
 
+
+                Log.d(TAG, "onItemClick: FLAG  --->  "+ flag);
             }
         });
         addHabit.setOnClickListener(new View.OnClickListener() {
@@ -144,13 +155,51 @@ public class HabitTrackerActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchMonth(String timeStamp) {
+    private void getAllMapData(HashMap<Integer, Integer> hashMapTwo) {
+
+        for(Map.Entry<Integer,Integer> entry : hashMapTwo.entrySet()){
+          Log.d(TAG, "getAllMapData: KEY **  "+ entry.getKey() + "VALUE ** "+ entry.getValue());
+        }
+    }
+
+
+
+    private HashMap<Integer,Integer> makeMap(String timeStamp) {
+
+        long timeStampt = Long.parseLong(timeStamp);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeStampt);
+        int  date = calendar.get(Calendar.DATE);
+        final int  month = calendar.get(Calendar.MONTH);
+
+        Log.d(TAG, "HASHMAP "+ hashMap.get(month) +" makeMap: DATE "+ date + " Month "+ month + " TimeStamp " + timeStamp);
+
+        //TODO: : if date for that particular month already exists in the map (Like if once a date is
+        // added for that month) don't again add it in the Map
+        recordHabitViewModel.getAllRecords().observeForever(new Observer<List<RecordHabit>>() {
+            @Override
+            public void onChanged(List<RecordHabit> recordHabits) {
+                Log.d(TAG, "onChanged: IT CHANGED *************");
+                //TODO :: CLEAR THE HASH MAP HERE
+                if(hashMap.get(month) != null){
+                    if(hashMap.get(month) == dateToday){
+                        hashMap.clear();
+                    }
+                }
+
+            }
+        });
+        if(hashMap.get(month) == null || hashMap.get(month) != date){
+            flag++;
+            hashMap.put(month,date);
+            Log.d(TAG, "makeMap: "+ hashMap.get(month)  + "  : " + date);
+        }
+
+
+        return hashMap;
 
     }
 
-    private void fetchDate(String timeStamp) {
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -174,6 +223,4 @@ public class HabitTrackerActivity extends AppCompatActivity {
             Toast.makeText(this, "Not Saved", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

@@ -16,7 +16,12 @@
 
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".habitTracker.HabitCalendar"></activity>
+        <activity android:name=".habitTracker.HabitCalendar"
+
+            android:parentActivityName=".habitTracker.HabitTrackerActivity"
+            >
+
+        </activity>
         <activity
             android:name=".habitTracker.AddHabitActivity"
             android:parentActivityName=".habitTracker.HabitTrackerActivity" />

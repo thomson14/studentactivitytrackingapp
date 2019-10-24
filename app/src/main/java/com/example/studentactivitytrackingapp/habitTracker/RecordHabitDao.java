@@ -28,4 +28,10 @@ public interface RecordHabitDao {
     @Query("SELECT timeStamp FROM habit_record WHERE title = :title")
     String getAllTimeStamp(String title);
 
+    @Query("DELETE FROM habit_record")
+    void deleteAllHabit();
+
+    @Query("DELETE FROM habit_record WHERE title = :title")
+    void deleteAllWithTitle(String title);
+
 }

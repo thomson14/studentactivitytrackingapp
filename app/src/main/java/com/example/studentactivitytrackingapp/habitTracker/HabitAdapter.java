@@ -23,6 +23,7 @@ import com.example.studentactivitytrackingapp.R;
 
 import java.security.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
@@ -37,6 +38,8 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
 
     private  OnItemClickListner listner;
 
+    private  int dateToday ;
+
     public  HabitAdapter(Context context) {
         this.context = context;
         habitViewModel = ViewModelProviders.of((FragmentActivity) context).get(HabitViewModel.class);
@@ -48,6 +51,9 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
     public HabitHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.habit_item,viewGroup,false);
+
+        Calendar c = Calendar.getInstance();
+        dateToday = c.get(Calendar.DATE);
 
         return new HabitHolder(itemView);
     }
@@ -64,49 +70,54 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
              //   Log.d(TAG, "onCheckedChanged: isChecked" + isChecked + "at position "+ i + " ID " + currentHabit.getId());
-               if(isChecked){
+                RecordHabit recordHabit= new RecordHabit(currentHabit.getTitle(),String.valueOf(System.currentTimeMillis()));
 
-                   //TODO :: if checkbox is checked or is true --->
-
+                if(isChecked){
 //                   List<Integer> datesList = new ArrayList<>();
 //                   datesList.add(19);
 //                   currentHabit.setDates(datesList);
                   // habitViewModel.getDates(currentHabit);
                    currentHabit.setStatus(true);
                    habitViewModel.update(currentHabit);
-
 //                   currentRecord.setTitle(currentHabit.getTitle());
 //                   currentRecord.setTimeStamp(String.valueOf(System.currentTimeMillis()));
 
-//                   RecordHabit recordHabit= new RecordHabit(currentHabit.getTitle(),String.valueOf(System.currentTimeMillis()));
-
-                   recordHabitViewModel.insert(new RecordHabit(currentHabit.getTitle(),String.valueOf(System.currentTimeMillis())));
+                   recordHabitViewModel.insert(recordHabit);
                 //   Log.d(TAG, "onCheckedChanged: "+   habitViewModel.getDates(currentHabit));
-
 //                   Log.d(TAG, "onCheckedChanged: "+ recordHabitViewModel.getAllRecords());
 ////                   String timestamp = recordHabitViewModel.getTimestamp(recordHabit);
-
                    recordHabitViewModel.getAllRecords().observeForever(new Observer<List<RecordHabit>>() {
                        @Override
                        public void onChanged(List<RecordHabit> recordHabits) {
                            for(RecordHabit recordHabit : recordHabits){
-                            //   Log.d(TAG, "onChanged: "+ "ID " + recordHabit.getTitle() + " TIME STAMP "+ recordHabit.getTimeStamp());
+                           //   Log.d(TAG, "onChanged: "+ "ID " + recordHabit.getTitle() + " TIME STAMP "+ recordHabit.getTimeStamp());
                            }
                        }
                    });
 //
 //                   Log.d(TAG, "onCheckedChanged: *******************"+ timestamp);
-
                }
                else{
+
                    currentHabit.setStatus(false);
                    habitViewModel.update(currentHabit);
+                   if(getDateFromtimestamp(recordHabitViewModel.getTimestamp(recordHabit))== dateToday){
+                       recordHabitViewModel.deleteWithTitile(recordHabit);
+
+                   }
+
                }
 
             }
         });
 
 
+    }
+
+    private int getDateFromtimestamp(String timestamp) {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(Long.parseLong(timestamp));
+        return c.get(Calendar.DATE);
     }
 
     @Override

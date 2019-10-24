@@ -32,6 +32,14 @@ public class RecordHabitRepository {
          new DeleteRecordAsyncTask(habitDao).execute(recordHabit);
     }
 
+    public void deleteAllRecords(){
+
+    }
+
+    public void deleteAllWithTitle(RecordHabit recordHabit){
+        new DeleteAllWithTitle(habitDao).execute(recordHabit);
+    }
+
     public LiveData<List<RecordHabit>>  getAllRecords(){
         return allRecords;
     }
@@ -105,6 +113,22 @@ public class RecordHabitRepository {
             return timestamp;
         }
     }
+    private static class DeleteAllWithTitle extends  AsyncTask<RecordHabit,Void,Void>{
+
+        private RecordHabitDao recordHabitDao;
+        private DeleteAllWithTitle(RecordHabitDao recordHabitDao){
+            this.recordHabitDao = recordHabitDao;
+        }
+
+        @Override
+        protected Void doInBackground(RecordHabit... recordHabits) {
+            recordHabitDao.deleteAllWithTitle(recordHabits[0].getTitle());
+            return  null;
+
+        }
+    }
+
+
 
 
 

@@ -32,6 +32,9 @@ public class RecordHabitViewModel extends AndroidViewModel {
     public void delete(RecordHabit recordHabit){
         recordHabitRepository.update(recordHabit);
     }
+    public void deleteWithTitile(RecordHabit recordHabit){
+        recordHabitRepository.deleteAllWithTitle(recordHabit);
+    }
 
     public String getTimestamp(RecordHabit recordHabit){
         timestamp = recordHabitRepository.getTimestamp(recordHabit);
