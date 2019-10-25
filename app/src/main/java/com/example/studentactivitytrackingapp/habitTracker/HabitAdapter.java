@@ -84,9 +84,7 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
                         @Override
                         public void onChanged(List<RecordHabit> recordHabits) {
                             for (RecordHabit recordHabit : recordHabits) {
-
                                 Log.d(TAG, "onChanged: " + "ID " + recordHabit.getTitle() + " TIME STAMP " + recordHabit.getTimeStamp());
-
                             }
                         }
                     });
@@ -103,6 +101,7 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitHolder>
                     if (getDateFromtimestamp(recordHabitViewModel.getTimestamp(recordHabit)) == dateToday) {
                         Log.d(TAG, "onCheckedChanged: SHOULD DELETE");
                         recordHabitViewModel.deleteWithTitile(recordHabit);
+
                     }
 
 

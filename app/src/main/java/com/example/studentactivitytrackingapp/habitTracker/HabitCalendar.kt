@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.children
 
 import com.example.studentactivitytrackingapp.R
+import com.google.firebase.database.*
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.DayOwner
 
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.habit_calendar.*
 import org.threeten.bp.LocalDate
 import org.threeten.bp.YearMonth
 import org.threeten.bp.format.DateTimeFormatter
-
+import java.io.Serializable
 
 class HabitCalendar : AppCompatActivity() {
     private val selectedDates = mutableSetOf<LocalDate>()
@@ -36,6 +37,24 @@ class HabitCalendar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.habit_calendar)
+
+        Log.d("IN KOTLIN ", "WE ARE IN KOTLIN")
+
+        val reference: DatabaseReference = FirebaseDatabase.getInstance().getReference("record").child("habit_record")
+        Log.d("IN KOTLIN ",reference.toString())
+        reference.addListenerForSingleValueEvent(object  : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                  Log.d("In Kotlin","DATA "+ p0.value)
+                  val children = p0.children
+                  children.forEach{
+                     Log.d("IN KOTLIN " ,it.key.toString() + " : "+ it.value.toString())
+                 }
+
+            }
+        })
 
         val daysOfWeek = daysOfWeekFromLocale()
         legendLayout.children.forEachIndexed { index, view ->

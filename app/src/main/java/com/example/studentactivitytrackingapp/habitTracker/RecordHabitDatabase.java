@@ -42,11 +42,7 @@ public abstract  class RecordHabitDatabase extends RoomDatabase {
           @Override
           protected Void doInBackground(Void... voids) {
 
-//                recordHabitDao.insert(new RecordHabit("Yoga","1571788800545"));
-////              //19th october
-//                recordHabitDao.insert(new RecordHabit("Yoga","1571443200545"));
-//////            13 october
-//                recordHabitDao.insert(new RecordHabit("Yoga","1570924800645"));
+
 //              recordHabitDao.insert(new RecordHabit("Yoga","1571751113"));
 //              recordHabitDao.insert(new RecordHabit("Yoga","1571405557"));
 //              recordHabitDao.insert(new RecordHabit("Yoga","1571319157"));
