@@ -15,22 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "1041808854413-jf1c2gq8ir3m3mma86m637pfi1ag6oor.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.studentactivitytrackingapp",
-            "certificate_hash": "6e15f1d6abfe983da8c2b40971cc8c75d78a8f8f"
-          }
-        },
-        {
-          "client_id": "1041808854413-ooqus0kfo1u8v5ka0c4fp7naiggfmofv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.studentactivitytrackingapp",
-            "certificate_hash": "0e6fb3e02fbc613595e032a7ab6806bebb4eafe5"
-          }
-        },
-        {
           "client_id": "1041808854413-siqck5oiqrpjo1pft2o4l6tgocg7qrua.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
