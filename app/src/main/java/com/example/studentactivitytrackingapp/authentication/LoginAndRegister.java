@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studentactivitytrackingapp.R;
 
-public class Log_and_Regis extends AppCompatActivity {
+public class LoginAndRegister extends AppCompatActivity {
 
     Button btn_register,btn_login,home;
 
@@ -25,14 +25,14 @@ public class Log_and_Regis extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Log_and_Regis.this, Login_Activity.class));
+                startActivity(new Intent(LoginAndRegister.this, LoginActivity.class));
             }
         });
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Log_and_Regis.this, Register_Activity.class));
+                startActivity(new Intent(LoginAndRegister.this, RegisterActivity.class));
             }
         });
 
