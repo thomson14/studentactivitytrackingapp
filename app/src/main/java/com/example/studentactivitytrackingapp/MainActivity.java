@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.example.studentactivitytrackingapp.ToDoList.ToDoListActivity;
 import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
+import com.example.studentactivitytrackingapp.habitTrackerNew.HabitTrackAct;
 import com.example.studentactivitytrackingapp.noteTaking.NoteTakingActivity;
 import com.example.studentactivitytrackingapp.studyTimer.StudyTimerActivity;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         cardHabitTracker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MainActivity.this, HabitTrackerActivity.class);
+                Intent in = new Intent(MainActivity.this, HabitTrackAct.class);
                 startActivity(in);
             }
         });

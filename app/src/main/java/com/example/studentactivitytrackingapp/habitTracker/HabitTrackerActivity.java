@@ -52,8 +52,8 @@ public class HabitTrackerActivity extends AppCompatActivity {
     private RecordHabitViewModel recordHabitViewModel;
     FloatingActionButton addHabit, delete;
     int flag = 0;
-    HashMap<String, Integer> hashMap = new HashMap<>();
-    HashMap<String, Integer> hashMapTwo = new HashMap<>();
+    HashMap<Integer, Integer> hashMap = new HashMap<>();
+    HashMap<Integer, Integer> hashMapTwo = new HashMap<>();
 
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -125,13 +125,12 @@ public class HabitTrackerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(final Habit habit) {
                 flag =0;
-           //     Log.d(TAG, "onChanged: TITLE ******** "+ habit.getTitle());
+                 Log.d(TAG, "onChanged: TITLE ******** "+ habit.getTitle());
                  LiveData<List<RecordHabit>> record = recordHabitViewModel.getAllRecords();
                  List<RecordHabit> recordHabits = record.getValue();
 
+                Log.d(TAG, "onItemClick: "+ recordHabits.isEmpty());
 
-//                Log.d(TAG, "onItemClick: RECORD#######"+ record);
-//                Log.d(TAG, "onItemClick: RECORD HABITS ********"+ recordHabits);
                 for(RecordHabit recordHabit : recordHabits){
                     if(habit.getTitle().equals(recordHabit.getTitle())){
                     //    Log.d(TAG, "onItemClick: TIME STAMP For "+habit.getTitle() +" " + recordHabit.getTimeStamp());
@@ -140,10 +139,10 @@ public class HabitTrackerActivity extends AppCompatActivity {
                     }
                 }
 
-            //    getAllMapData(hashMapTwo);
-                Intent in  = new Intent(HabitTrackerActivity.this,HabitCalendar.class);
-              //  in.putExtra("sparse_array",hashMap);
-                startActivity(in);
+                 getAllMapData(hashMapTwo);
+//                Intent in  = new Intent(HabitTrackerActivity.this,HabitCalendar.class);
+//              //  in.putExtra("sparse_array",hashMap);
+//                startActivity(in);
 
 
                 Log.d(TAG, "onItemClick: FLAG  --->  "+ flag);
@@ -170,13 +169,13 @@ public class HabitTrackerActivity extends AppCompatActivity {
     private void getAllMapData(HashMap<Integer, Integer> hashMapTwo) {
 
         for(Map.Entry<Integer,Integer> entry : hashMapTwo.entrySet()){
-     //     Log.d(TAG, "getAllMapData: KEY **  "+ entry.getKey() + "VALUE ** "+ entry.getValue());
+            Log.d(TAG, "getAllMapData: KEY **  "+ entry.getKey() + "VALUE ** "+ entry.getValue());
         }
     }
 
 
 
-    private HashMap<String,Integer> makeMap(String timeStamp) {
+    private HashMap<Integer,Integer> makeMap(String timeStamp) {
 
         long timeStampt = Long.parseLong(timeStamp);
         Calendar calendar = Calendar.getInstance();
@@ -189,33 +188,42 @@ public class HabitTrackerActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("record").child("habit_record");
 
 
+
+        if(hashMap.get(month) == null || hashMap.get(month) != date){
+            flag++;
+            hashMap.put(month,date);
+//            Log.d(TAG, "makeMap:******************* "+ hashMap.get(month).toString());
+
+//            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                @Override
+//                public void onComplete(@NonNull Task<Void> task) {
+//                    Log.d(TAG, "onComplete: DONE SENDING DATA IN DATBASE");
+//                }
+//            });
+        }
         recordHabitViewModel.getAllRecords().observeForever(new Observer<List<RecordHabit>>() {
             @Override
             public void onChanged(List<RecordHabit> recordHabits) {
+                Log.d(TAG, "onChanged: HASH MAP ***********  "+ hashMap.get(month) + " ");
                 if(hashMap.get(month) != null ){
+                    Log.d(TAG, "onChanged: HASH MAP ***********  "+ hashMap.get(month) + " ");
                     if(hashMap.get(month) == dateToday){
+                        Log.d(TAG, "onChanged: HASH MAP ***********  "+ hashMap.get(month) + " : "  + dateToday);
                         hashMap.clear();
-                        reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Log.d(TAG, "onComplete: DONE CLERING HASHMAP DATA IN DATBASE");
-                            }
-                        });
+
+                        Log.d(TAG, "onChanged: HASH MAP ***********  "+ hashMap.isEmpty());
+
+
+//                        reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//                                //Log.d(TAG, "onComplete: DONE CLERING HASHMAP DATA IN DATBASE");
+//                            }
+//                        });
                     }
                 }
             }
         });
-        if(hashMap.get(month) == null || hashMap.get(month) != date){
-            flag++;
-            hashMap.put(String.valueOf(month),date);
-
-            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    Log.d(TAG, "onComplete: DONE SENDING DATA IN DATBASE");
-                }
-            });
-        }
         return hashMap;
 
     }
