@@ -2,19 +2,14 @@ package com.example.studentactivitytrackingapp.habitTracker;
 
 import android.app.Application;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
-
 public class HabitRepository {
     private HabitDao habitDao;
     private LiveData<List<Habit>> allHabits;
-    private List<Integer> allDates;
-
     public HabitRepository(Application application) {
         HabitDatabase database = HabitDatabase.getInstance(application);
         habitDao = database.habitDao();
@@ -42,10 +37,10 @@ public class HabitRepository {
         return allHabits;
     }
 
-    public List<Integer>  getDates(Habit habit){
-        new GetDatesAsyncTask(habitDao).execute(habit);
-        return allDates;
-    }
+//    public List<Integer> getAllDates(Habit habit){
+//        new GetDatesAsyncTask(habitDao).execute(habit);
+//        return allDates;
+//    }
 
     private static class InsertHabitAsyncTask extends AsyncTask<Habit, Void, Void> {
 
@@ -109,26 +104,18 @@ public class HabitRepository {
         }
     }
 
-    private static class GetDatesAsyncTask extends AsyncTask<Habit, Void, List<Integer>> {
-        private HabitDao habitDao;
-
-        private GetDatesAsyncTask(HabitDao habitDao) {
-            this.habitDao = habitDao;
-        }
-
-        @Override
-        protected List<Integer> doInBackground(Habit... habits) {
-            Log.d(TAG, "doInBackground:Get Dates Async TAsk " + habits[0].isStatus() +" \n "+ habits[0].getCurrentDate()
-            +" \n "+ habits[0].getTitle()+ " \n " + habits[0].getId() +" \n "
-            );
-
-            for(int myDates : habitDao.getDates(habits[0].getTitle())){
-                Log.d(TAG, "doInBackground: LIST -->  "+ myDates);
-            }
-            return habitDao.getDates(habits[0].getTitle());
-
-        }
-    }
+//    private static class GetDatesAsyncTask extends AsyncTask<Habit, Void, List<Integer>> {
+//        private HabitDao habitDao;
+//
+//        private GetDatesAsyncTask(HabitDao habitDao) {
+//            this.habitDao = habitDao;
+//        }
+//
+//        @Override
+//        protected List<Integer> doInBackground(Habit... habits) {
+//            return habitDao.getAllDates(habits[0].getId());
+//        }
+//    }
 
 
 }

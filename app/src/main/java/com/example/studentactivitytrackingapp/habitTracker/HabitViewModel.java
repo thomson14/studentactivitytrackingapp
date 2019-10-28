@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -15,7 +16,7 @@ public class HabitViewModel extends AndroidViewModel {
 
     private HabitRepository repository;
     private LiveData<List<Habit>> allHabits;
-    private List<Integer> allDates;
+//    private List<Integer> allDates;
 
     public HabitViewModel(@NonNull Application application) {
         super(application);
@@ -44,11 +45,11 @@ public class HabitViewModel extends AndroidViewModel {
         return allHabits;
     }
 
-    public List<Integer> getDates(Habit habit) {
-        allDates = repository.getDates(habit);
-        Log.d(TAG, "getDates: " + allDates);
-        return allDates;
-    }
+//    public List<Integer> getDates(Habit habit) {
+//        allDates = repository.getAllDates(habit);
+//        Log.d(TAG, "getDates: " + allDates);
+//        return allDates;
+//    }
 
 
 }
