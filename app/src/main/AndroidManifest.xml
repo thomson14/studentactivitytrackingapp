@@ -48,6 +48,10 @@
         <activity android:name=".authentication.RegisterActivity" />
         <activity android:name=".authentication.LoginActivity" />
         <activity android:name=".authentication.LoginAndRegister" />
+
+        <activity android:name=".timetable.activities.MainActivity">
+
+        </activity>
     </application>
 
 </manifest>

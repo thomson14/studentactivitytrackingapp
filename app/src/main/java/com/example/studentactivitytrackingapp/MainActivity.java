@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         cardNoteTaking = findViewById(R.id.card_view_note);
         cardStudyTimer = findViewById(R.id.card_view_study);
         cardTimeTable  = findViewById(R.id.card_view_time_table);
+
+
         Cardtodolist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
