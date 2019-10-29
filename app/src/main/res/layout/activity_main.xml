@@ -10,27 +10,39 @@
     <com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer
         android:id="@+id/navigationDrawer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        >
 
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
+
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
                 android:padding="30dp"
                 android:scaleX="1.9"
-                app:cardCornerRadius="30dp"
+                app:cardCornerRadius="50dp"
                 app:contentPadding="10dp"
 
                 >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To Do List"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="italic"/>
 
 
                 <ImageView
+                    android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/todolist" />
@@ -40,28 +52,38 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_note"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="150dp"
                 android:layout_marginTop="180dp"
                 android:padding="30dp"
                 android:scaleX="1.9"
-                app:cardCornerRadius="30dp"
+                app:cardCornerRadius="50dp"
                 app:contentPadding="10dp"
 
                 >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Note Taking"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="italic"/>
+
                 <ImageView
+                    android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/todolist" />
+                    android:src="@drawable/notetaking" />
 
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_habit"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="300dp"
                 android:padding="30dp"
                 android:scaleX="1.9"
@@ -69,11 +91,18 @@
                 app:contentPadding="10dp"
 
                 >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Habit Tracking"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="italic"/>
 
                 <ImageView
+                    android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/todolist" />
+                    android:src="@drawable/habittracker" />
 
 
             </androidx.cardview.widget.CardView>
@@ -81,8 +110,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_study"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="430dp"
                 android:padding="30dp"
                 android:scaleX="1.9"
@@ -91,10 +121,17 @@
 
                 >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Study Timer"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="italic"/>
                 <ImageView
+                    android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/todolist" />
+                    android:src="@drawable/studytimer" />
 
 
             </androidx.cardview.widget.CardView>
@@ -102,9 +139,10 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_time_table"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="580dp"
+                android:layout_gravity="center_horizontal"
                 android:padding="30dp"
                 android:scaleX="1.9"
                 app:cardCornerRadius="30dp"
@@ -112,10 +150,18 @@
 
                 >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time Table Management"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="italic"/>
+
                 <ImageView
+                    android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/todolist" />
+                    android:src="@drawable/timetablemanage" />
 
 
             </androidx.cardview.widget.CardView>

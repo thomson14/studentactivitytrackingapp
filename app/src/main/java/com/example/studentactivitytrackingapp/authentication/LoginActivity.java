@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -15,15 +16,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.studentactivitytrackingapp.MainActivity;
 import com.example.studentactivitytrackingapp.R;
+import com.github.florent37.materialtextfield.MaterialTextField;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.theme.MaterialComponentsViewInflater;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rengwuxian.materialedittext.MaterialAutoCompleteTextView;
+import com.rengwuxian.materialedittext.MaterialEditText;
+import com.rengwuxian.materialedittext.MaterialMultiAutoCompleteTextView;
 
 public class LoginActivity extends AppCompatActivity {
 
-    MaterialAutoCompleteTextView emailL,passwordL;
+    MaterialTextField emailL,passwordL;
     Button btn_loginL;
     FirebaseAuth auth;
     ProgressBar loginProgress;
@@ -45,16 +50,17 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        emailL =  findViewById(R.id.emailL);
-        passwordL =  findViewById(R.id.passwordL);
+        emailL = (MaterialTextField) findViewById(R.id.emailL);
+        passwordL = (MaterialTextField) findViewById(R.id.passwordL);
+
         btn_loginL = (Button) findViewById(R.id.btn_loginL);
         auth = FirebaseAuth.getInstance();
         btn_loginL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginProgress.setVisibility(View.VISIBLE);
-                String txt_email = emailL.getText().toString();
-                String txt_password = passwordL.getText().toString();
+                String txt_email = emailL.getEditText().toString();
+                String txt_password = passwordL.getEditText().toString();
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(LoginActivity.this,"All Fields Are Requierds",Toast.LENGTH_SHORT).show();

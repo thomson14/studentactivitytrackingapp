@@ -91,8 +91,10 @@ public class MainActivity extends AppCompatActivity {
         List<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(new MenuItem("HOME",R.drawable.home));
         menuItems.add(new MenuItem("To Do List",R.drawable.todolistnav));
-        //menuItems.add(new MenuItem("Messages",R.drawable.photo6));
-        //menuItems.add(new MenuItem("Music",R.drawable.photo7));
+        menuItems.add(new MenuItem("Note Taking",R.drawable.notetaking));
+        menuItems.add(new MenuItem("Habit Tracking",R.drawable.habittracker));
+        menuItems.add(new MenuItem("Study Timer",R.drawable.studytimer));
+        menuItems.add(new MenuItem("Time Table Management",R.drawable.timetablemanage));
 
 
         //then add them to navigation drawer
@@ -123,14 +125,22 @@ public class MainActivity extends AppCompatActivity {
                         fragmentClass = ToDoListActivity.class;
                         break;
                     }
-                  /*  case 2: {
-                        fragmentClass = MessagesFragment.class;
+                    case 2: {
+                        fragmentClass = NoteTakingActivity.class;
                         break;
                     }
                     case 3: {
-                        fragmentClass = MusicFragment.class;
+                        fragmentClass = HabitTrackerActivity.class;
                         break;
-                    }*/
+                    }
+                    case 4: {
+                        fragmentClass = StudyTimerActivity.class;
+                        break;
+                    }
+                    case 5: {
+                        fragmentClass = com.example.studentactivitytrackingapp.timetable.activities.MainActivity.class;
+                        break;
+                    }
 
                 }
 

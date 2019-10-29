@@ -27,8 +27,44 @@
             android:textStyle="bold"/>
 
 
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailL"
+            app:mtf_labelColor="#666">
+           <!-- app:mtf_image="@drawable/ic_mail_grey600_24dp"-->
 
-        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Email"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordL"
+            app:mtf_labelColor="#666">
+           <!-- app:mtf_image="@drawable/ic_mail_grey600_24dp"-->
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Password"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+       <!-- <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/emailL"
@@ -44,7 +80,7 @@
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
             app:met_floatingLabel="normal"
-            android:hint="Password"/>
+            android:hint="Password"/> -->
 
 
         <Button
