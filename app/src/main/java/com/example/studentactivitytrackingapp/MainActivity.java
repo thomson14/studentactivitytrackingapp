@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
 
     //our activity
-    CardView Cardtodolist,cardNoteTaking,cardHabitTracker,cardStudyTimer;
+    CardView Cardtodolist,cardNoteTaking,cardHabitTracker,cardStudyTimer,cardTimeTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Cardtodolist = findViewById(R.id.card_view);
         cardNoteTaking = findViewById(R.id.card_view_note);
         cardStudyTimer = findViewById(R.id.card_view_study);
+        cardTimeTable  = findViewById(R.id.card_view_time_table);
+
+
         Cardtodolist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +73,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in = new Intent(MainActivity.this, HabitTrackAct.class);
                 startActivity(in);
+            }
+        });
+
+        cardTimeTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, com.example.studentactivitytrackingapp.timetable.activities.MainActivity.class);
+                startActivity(intent);
             }
         });
 

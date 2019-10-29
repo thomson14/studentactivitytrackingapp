@@ -48,6 +48,21 @@
         <activity android:name=".authentication.RegisterActivity" />
         <activity android:name=".authentication.LoginActivity" />
         <activity android:name=".authentication.LoginAndRegister" />
+
+        <activity android:name=".timetable.activities.MainActivity">
+
+        </activity>
+
+        <activity android:name=".timetable.activities.ExamsActivity">
+        </activity>
+        <activity android:name=".timetable.activities.HomeworksActivity">
+
+        </activity>
+        <activity android:name=".timetable.activities.NoteInfoActivity"></activity>
+        <activity android:name=".timetable.activities.NotesActivity"></activity>
+        <activity android:name=".timetable.activities.SettingsActivity"></activity>
+        <activity android:name=".timetable.activities.TeachersActivity"></activity>
+
     </application>
 
 </manifest>
