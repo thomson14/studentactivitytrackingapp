@@ -18,11 +18,7 @@
 <!--        <activity-->
 <!--            android:name=".habitTracker.HabitCalendar"-->
 <!--            android:parentActivityName=".habitTracker.HabitTrackerActivity" />-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".habitTracker.AddHabitActivity"
@@ -47,7 +43,14 @@
             android:launchMode="singleTop" />
         <activity android:name=".authentication.RegisterActivity" />
         <activity android:name=".authentication.LoginActivity" />
-        <activity android:name=".authentication.LoginAndRegister" />
+        <activity android:name=".authentication.LoginAndRegister" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".timetable.activities.MainActivity">
 
