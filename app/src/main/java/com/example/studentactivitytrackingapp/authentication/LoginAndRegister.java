@@ -11,19 +11,19 @@ import androidx.appcompat.widget.ButtonBarLayout;
 import com.example.studentactivitytrackingapp.MainActivity;
 import com.example.studentactivitytrackingapp.R;
 
-import life.sabujak.roundedbutton.RoundedButton;
+
 
 public class LoginAndRegister extends AppCompatActivity {
 
-    RoundedButton btn_register,btn_login,home;
+  Button btn_register,btn_login,home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_and__regis);
 
-        btn_login = (RoundedButton) findViewById(R.id.login);
-        btn_register = (RoundedButton) findViewById(R.id.register);
+        btn_login =  findViewById(R.id.login);
+        btn_register =  findViewById(R.id.register);
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {

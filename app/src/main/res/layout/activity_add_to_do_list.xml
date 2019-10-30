@@ -16,12 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/title_To_do"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            app:met_floatingLabel="highlight"
+            android:layout_marginTop="50dp"
             android:textSize="25dp"
             android:inputType="text"
             android:hint="Add Task"
@@ -29,26 +31,27 @@
 
         <CheckBox
             android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12.5dp"
-            android:layout_toRightOf="@+id/title_To_do"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50.5dp"
+            android:layout_toEndOf="@+id/title_To_do"
             android:padding="8dp"
+            android:layout_marginStart="20dp"
             />
 
     </RelativeLayout>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="SAVE"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         android:textSize="22sp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="90dp"
         android:padding="16dp"
         android:id="@+id/saveButtonToDo"
-        android:background="@color/colorPrimary"
         />
 
 

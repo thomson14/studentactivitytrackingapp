@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.studentactivitytrackingapp.ToDoList.ToDoListActivity;
 import com.example.studentactivitytrackingapp.habitTracker.HabitTrackerActivity;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
 
     //our activity
-    CardView Cardtodolist,cardNoteTaking,cardHabitTracker,cardStudyTimer,cardTimeTable;
+    ImageView Cardtodolist,cardNoteTaking,cardHabitTracker,cardStudyTimer,cardTimeTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cardtodolist = findViewById(R.id.card_view);
         cardNoteTaking = findViewById(R.id.card_view_note);
+        cardHabitTracker = findViewById(R.id.card_view_habit);
         cardStudyTimer = findViewById(R.id.card_view_study);
         cardTimeTable  = findViewById(R.id.card_view_time_table);
 
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        cardHabitTracker = findViewById(R.id.card_view_habit);
+
         cardHabitTracker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

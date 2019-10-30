@@ -5,52 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/back"
+    android:background="@drawable/screenbg"
     android:orientation="vertical"
     tools:context=".authentication.LoginAndRegister">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Student"
-        android:textColor="#fff"
-        android:textSize="35sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Activity Tracking App"
-        android:textColor="#fff"
-        android:textSize="25sp"/>
 
-    <life.sabujak.roundedbutton.RoundedButton
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:gravity="center"
-        android:padding="24dp"
-        android:textSize="20dp"
-        android:text="Login"
-        android:textColor="#ffffff"
-        app:buttonGradientStartColor="#000000"
-        app:buttonGradientEndColor="#D9FFFFFF"
-        app:buttonCornerRadius="20dp"
-        />
 
-    <life.sabujak.roundedbutton.RoundedButton
-        android:id="@+id/register"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:gravity="center"
-        android:padding="24dp"
-        android:textSize="20dp"
-        android:text="Register"
-        android:textColor="#ffffff"
-        app:buttonGradientStartColor="#000000"
-        app:buttonGradientEndColor="#D9FFFFFF"
-        app:buttonCornerRadius="20dp"
-        />
+        android:layout_height="match_parent"
+        android:layout_marginTop="350dp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="90dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/register"
+            android:gravity="center"
+
+            />
+    </FrameLayout>
+
 
 
 
