@@ -1,4 +1,5 @@
 package com.example.studentactivitytrackingapp.studyTimer;
+
 import android.os.CountDownTimer;
 import android.os.Bundle;
 import android.view.View;
@@ -10,20 +11,22 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studentactivitytrackingapp.R;
+import com.xenione.digit.TabDigit;
 
 import java.util.Locale;
 
 public class StudyTimerActivity extends AppCompatActivity {
 
-    EditText time_title,time_discription,edit_time_picker;
+    EditText time_title, time_discription, edit_time_picker;
     TextView text_count_down;
     Button btn_time_picker;
-    private int  mHour, mMinute;
+
+    private int mHour, mMinute;
 
     //dfhegfyegfyue
 
 
-    TextView btn_reset,btn_start_pause,getText_count_down;
+    TextView btn_reset, btn_start_pause, getText_count_down;
     private CountDownTimer countDownTimer;
     private boolean timerRunning;
     private long startTimeInMillis;
@@ -38,7 +41,6 @@ public class StudyTimerActivity extends AppCompatActivity {
         edit_time_picker = findViewById(R.id.edit_Time_picker);
         btn_time_picker = findViewById(R.id.btn_time_picker);
         text_count_down = findViewById(R.id.text_count_down);
-
         btn_start_pause = findViewById(R.id.button_start_pause);
         btn_reset = findViewById(R.id.button_reset);
         getText_count_down = findViewById(R.id.text_count_down);
@@ -49,7 +51,7 @@ public class StudyTimerActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String input = edit_time_picker.getText().toString();
-                if (input.length()==0){
+                if (input.length() == 0) {
 
                     Toast.makeText(StudyTimerActivity.this, "Field cant be empty", Toast.LENGTH_SHORT).show();
                     return;
@@ -57,7 +59,7 @@ public class StudyTimerActivity extends AppCompatActivity {
 
                 long millisInput = Long.parseLong(input) * 60000;
 
-                if(millisInput == 0 ){
+                if (millisInput == 0) {
 
                     Toast.makeText(StudyTimerActivity.this, "please enter a postive no.", Toast.LENGTH_SHORT).show();
                     return;
@@ -74,11 +76,11 @@ public class StudyTimerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(timerRunning){
+                if (timerRunning) {
 
                     pauseTimer();
 
-                }else {
+                } else {
                     startTimer();
                 }
             }
@@ -95,14 +97,14 @@ public class StudyTimerActivity extends AppCompatActivity {
     }
 
 
-    private void  setTime(long milliseconds){
+    private void setTime(long milliseconds) {
 
         startTimeInMillis = milliseconds;
         resetTimer();
     }
 
-    private void startTimer(){
-        countDownTimer = new CountDownTimer(getTimeLeftInMillis,1000) {
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(getTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
@@ -127,7 +129,7 @@ public class StudyTimerActivity extends AppCompatActivity {
         btn_reset.setVisibility(View.INVISIBLE);
     }
 
-    private void pauseTimer(){
+    private void pauseTimer() {
 
         countDownTimer.cancel();
         timerRunning = false;
@@ -135,7 +137,7 @@ public class StudyTimerActivity extends AppCompatActivity {
         btn_reset.setVisibility(View.VISIBLE);
     }
 
-    private void  resetTimer(){
+    private void resetTimer() {
 
         getTimeLeftInMillis = startTimeInMillis;
         updateCountDownText();
@@ -143,23 +145,20 @@ public class StudyTimerActivity extends AppCompatActivity {
         btn_start_pause.setVisibility(View.VISIBLE);
     }
 
-    private void updateCountDownText(){
+    private void updateCountDownText() {
         int hours = (int) (getTimeLeftInMillis / 1000) / 3600;
         int minutes = (int) ((getTimeLeftInMillis / 1000) % 3600) / 60;
         int secconds = (int) (getTimeLeftInMillis / 1000) % 60;
 
         String timeLeftFormatted;
 
-        if (hours > 0){
+        if (hours > 0) {
 
-            timeLeftFormatted = String.format(Locale.getDefault(),"%d:%02d:%02d",hours,minutes,secconds);
+            timeLeftFormatted = String.format(Locale.getDefault(), "%d:%02d:%02d", hours, minutes, secconds);
+        } else {
+
+            timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, secconds);
         }
-        else {
-
-            timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d",minutes,secconds);
-        }
-
-
         text_count_down.setText(timeLeftFormatted);
 
     }

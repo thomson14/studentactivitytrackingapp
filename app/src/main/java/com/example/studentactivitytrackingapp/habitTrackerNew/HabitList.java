@@ -54,24 +54,29 @@ public class HabitList extends RecyclerView.Adapter<HabitList.HabitHolder> {
 
 
         holder.progressBar.setProgress(HabitLogic.currentProgress(thisHabit, events));
-        if (HabitLogic.onTrack(thisHabit, events, 50)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                holder.progressBar.setProgressTintList(
-                        ColorStateList.valueOf(
-                                holder.itemView.getContext().getColor(R.color.colorAccent)));
-            }
-        } else if (HabitLogic.onTrack(thisHabit, events, 30)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                holder.progressBar.setProgressTintList(
-                        ColorStateList.valueOf(
-                                holder.itemView.getContext().getColor(R.color.yellow)));
-            }
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                holder.progressBar.setProgressTintList(
-                        ColorStateList.valueOf(
-                                holder.itemView.getContext().getColor(R.color.colorPrimary)));
-            }
+        if (HabitLogic.onTrack(thisHabit, events, 80)) {
+            holder.progressBar.setProgressTintList(
+                    ColorStateList.valueOf(
+                            holder.itemView.getContext().getColor(R.color.brown_700)));
+        } else if (HabitLogic.onTrack(thisHabit, events, 60)) {
+            holder.progressBar.setProgressTintList(
+                    ColorStateList.valueOf(
+                            holder.itemView.getContext().getColor(R.color.green)));
+        }if (HabitLogic.onTrack(thisHabit, events, 40)) {
+            holder.progressBar.setProgressTintList(
+                    ColorStateList.valueOf(
+                            holder.itemView.getContext().getColor(R.color.yellow)));
+        } else if (HabitLogic.onTrack(thisHabit, events, 20)) {
+            holder.progressBar.setProgressTintList(
+                    ColorStateList.valueOf(
+                            holder.itemView.getContext().getColor(R.color.red_800)));
+        }
+
+
+        else {
+            holder.progressBar.setProgressTintList(
+                    ColorStateList.valueOf(
+                            holder.itemView.getContext().getColor(R.color.black)));
         }
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {

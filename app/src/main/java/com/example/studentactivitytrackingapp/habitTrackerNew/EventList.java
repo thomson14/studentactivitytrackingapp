@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -148,7 +149,7 @@ public class EventList extends RecyclerView.Adapter<EventList.EventHolder> {
 
         private TextView eventDate;
         private TextView eventTime;
-        private Button deleteButton;
+        private ImageButton deleteButton;
 
         EventHolder(View itemView) {
             super(itemView);
