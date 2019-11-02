@@ -13,6 +13,8 @@
         android:id="@+id/toolbar"
         layout="@layout/bar_layout"/>
 
+
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_weight="2"

@@ -92,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
         List<MenuItem> menuItems = new ArrayList<>();
        // menuItems.add(new MenuItem("HOME",R.drawable.home));
-        menuItems.add(new MenuItem("To Do List",R.drawable.todolistnav));
-        menuItems.add(new MenuItem("Note Taking",R.drawable.notetaking));
-        menuItems.add(new MenuItem("Habit Tracking",R.drawable.habittracker));
-        menuItems.add(new MenuItem("Study Timer",R.drawable.studytimer));
-        menuItems.add(new MenuItem("Time Table Management",R.drawable.timetablemanage));
+        menuItems.add(new MenuItem("To Do List",R.drawable.allscreensbg));
+        menuItems.add(new MenuItem("Note Taking",R.drawable.allscreensbg));
+        menuItems.add(new MenuItem("Habit Tracking",R.drawable.allscreensbg));
+        menuItems.add(new MenuItem("Study Timer",R.drawable.allscreensbg));
+        menuItems.add(new MenuItem("Time Table Management",R.drawable.allscreensbg));
 
 
         //then add them to navigation drawer

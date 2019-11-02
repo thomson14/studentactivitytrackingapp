@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.studentactivitytrackingapp.R;
 import com.xenione.digit.TabDigit;
@@ -33,9 +34,22 @@ public class StudyTimerActivity extends AppCompatActivity {
     private long getTimeLeftInMillis;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_timer);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Study Timer");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         time_title = findViewById(R.id.edit_title_time);
         time_discription = findViewById(R.id.edit_Description_time);
         edit_time_picker = findViewById(R.id.edit_Time_picker);

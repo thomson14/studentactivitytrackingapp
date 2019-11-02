@@ -7,7 +7,7 @@
     tools:context=".timetable.activities.MainActivity"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+ <!--  <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags="scroll|enterAlways"/>
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>-->
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -32,7 +32,6 @@
         android:clipToPadding="false"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|center"
-        app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
         app:tabBackground="@drawable/tab_background"
         app:tabGravity="fill"
         app:tabIndicatorHeight="0dp"
@@ -43,7 +42,6 @@
         >
 
     </com.google.android.material.tabs.TabLayout>
-
 
     <include
         android:id="@+id/include"
