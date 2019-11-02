@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginProgress.setVisibility(View.VISIBLE);
-                String txt_email = emailL.getEditText().toString();
-                String txt_password = passwordL.getEditText().toString();
+                String txt_email = emailL.getEditText().getText().toString();
+                String txt_password = passwordL.getEditText().getText().toString();
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(LoginActivity.this,"All Fields Are Requierds",Toast.LENGTH_SHORT).show();

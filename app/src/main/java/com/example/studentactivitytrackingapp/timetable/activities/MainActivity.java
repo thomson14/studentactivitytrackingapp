@@ -41,31 +41,42 @@ import java.util.Calendar;
 import static com.example.studentactivitytrackingapp.timetable.utils.BrowserUtil.openUrlInChromeCustomTab;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity  {
 
     private FragmentsTabAdapter adapter;
     private ViewPager viewPager;
     private boolean switchSevenDays;
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_time);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Time Table");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         initAll();
     }
 
     private void initAll() {
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //NavigationView navigationView = findViewById(R.id.nav_view);
+       // navigationView.setNavigationItemSelectedListener(this);
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+      //  DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+       // ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+      //          this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+       // drawer.addDrawerListener(toggle);
+       // toggle.syncState();
 
         setupFragments();
         setupCustomDialog();
@@ -145,8 +156,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
     }
-    @Override
-    public void onBackPressed() {
+  //  @Override
+  /*  public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -173,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @Override
+    //@Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         final NavigationView navigationView = findViewById(R.id.nav_view);
         switch (item.getItemId()) {
@@ -210,5 +221,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
         }
-    }
+    }*/
 }

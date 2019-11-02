@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Set"
-            android:background="@drawable/buttonbackgg"
+            android:background="@drawable/button"
             android:layout_weight="50"
             />
     </LinearLayout>
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="start"
-        android:background="@drawable/buttonbackgg"
+        android:background="@drawable/button"
         />
 
     <Button
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="reset"
-        android:background="@drawable/buttonbackgg"
+        android:background="@drawable/button"
         android:layout_toRightOf="@+id/button_start_pause"
         android:visibility="invisible"
         tools:visibility = "visible"

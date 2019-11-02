@@ -24,52 +24,102 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create a new account"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="30sp"
+            android:textStyle="italic"/>
 
-        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/username"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="Username"/>
+            app:mtf_labelColor="#666"
+            app:mtf_image="@drawable/ic_person_black_24dp">
 
-        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Username"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/email"
-            android:layout_marginTop="10dp"
-            android:inputType="textEmailAddress"
-            app:met_floatingLabel="normal"
-            android:hint="Email"/>
+            app:mtf_labelColor="#666"
+            app:mtf_image="@drawable/ic_email_purple_24dp">
 
-        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Email"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/mobile_number"
-            android:layout_marginTop="10dp"
-            android:inputType="textPhonetic"
-            app:met_floatingLabel="normal"
-            android:hint="Mobile Number"/>
+            app:mtf_labelColor="#666"
+            app:mtf_image="@drawable/ic_smartphone_black_24dp">
 
-        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="mobile no"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/gender"
-            android:layout_marginTop="10dp"
-            android:inputType="text"
-            app:met_floatingLabel="normal"
-            android:hint="Gender"/>
+            app:mtf_labelColor="#666"
+            app:mtf_image="@drawable/ic_wc_gender_24dp">
 
-        <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Gender"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/password"
-            android:inputType="textPassword"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="Password"/>
+            app:mtf_labelColor="#666"
+            app:mtf_image="@drawable/ic_person_black_24dp">
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:password="true"
+                android:hint="Password"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
 
 
         <Button
@@ -79,7 +129,7 @@
             android:id="@+id/btn_register"
             android:background="@color/colorPrimaryDark"
             android:textColor="#fff"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="20dp"/>
 
         <ProgressBar
             android:id="@+id/registerProgress"

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.studentactivitytrackingapp.R;
+import com.github.florent37.materialtextfield.MaterialTextField;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    MaterialAutoCompleteTextView username, email, phone_num, gender, password;
+    MaterialTextField username, email, phone_num, gender, password;
     Button btn_Register;
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -63,11 +64,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registerProgress.setVisibility(View.VISIBLE);
-                String txt_username = username.getText().toString();
-                String txt_email = email.getText().toString();
-                String txt_phone = phone_num.getText().toString();
-                String txt_gender = gender.getText().toString();
-                String txt_password = password.getText().toString();
+                String txt_username = username.getEditText().getText().toString();
+                String txt_email = email.getEditText().getText().toString();
+                String txt_phone = phone_num.getEditText().getText().toString();
+                String txt_gender = gender.getEditText().getText().toString();
+                String txt_password = password.getEditText().getText().toString();
 
 
                 if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_phone) || TextUtils.isEmpty(txt_gender) || TextUtils.isEmpty(txt_password)) {

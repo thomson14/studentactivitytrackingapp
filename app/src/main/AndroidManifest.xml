@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studentactivitytrackingapp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,10 +12,11 @@
 
         <activity android:name=".habitTrackerNew.HabitTrackAct" />
         <activity android:name=".studyTimer.StudyTimerActivity" />
-        <activity android:name=".MainActivity" >
-<!--        <activity-->
-<!--            android:name=".habitTracker.HabitCalendar"-->
-<!--            android:parentActivityName=".habitTracker.HabitTrackerActivity" />-->
+        <activity android:name=".MainActivity">
+
+            <!-- <activity -->
+            <!-- android:name=".habitTracker.HabitCalendar" -->
+            <!-- android:parentActivityName=".habitTracker.HabitTrackerActivity" /> -->
 
         </activity>
         <activity
@@ -26,7 +25,6 @@
         <activity
             android:name=".habitTracker.HabitTrackerActivity"
             android:launchMode="singleTop">
-
         </activity>
         <activity
             android:name=".ToDoList.AddToDoListActivity"
@@ -43,29 +41,26 @@
             android:launchMode="singleTop" />
         <activity android:name=".authentication.RegisterActivity" />
         <activity android:name=".authentication.LoginActivity" />
-        <activity android:name=".authentication.LoginAndRegister" >
-
+        <activity android:name=".authentication.LoginAndRegister"/>
+            <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".timetable.activities.MainActivity">
-
         </activity>
-
         <activity android:name=".timetable.activities.ExamsActivity">
         </activity>
         <activity android:name=".timetable.activities.HomeworksActivity">
-
         </activity>
-        <activity android:name=".timetable.activities.NoteInfoActivity"></activity>
-        <activity android:name=".timetable.activities.NotesActivity"></activity>
-        <activity android:name=".timetable.activities.SettingsActivity"></activity>
-        <activity android:name=".timetable.activities.TeachersActivity"></activity>
-
+        <activity android:name=".timetable.activities.NoteInfoActivity" />
+        <activity android:name=".timetable.activities.NotesActivity" />
+        <activity android:name=".timetable.activities.SettingsActivity" />
+        <activity android:name=".timetable.activities.TeachersActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

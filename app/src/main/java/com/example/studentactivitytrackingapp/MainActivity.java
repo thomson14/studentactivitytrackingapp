@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
 
         List<MenuItem> menuItems = new ArrayList<>();
-        menuItems.add(new MenuItem("HOME",R.drawable.home));
+       // menuItems.add(new MenuItem("HOME",R.drawable.home));
         menuItems.add(new MenuItem("To Do List",R.drawable.todolistnav));
         menuItems.add(new MenuItem("Note Taking",R.drawable.notetaking));
         menuItems.add(new MenuItem("Habit Tracking",R.drawable.habittracker));
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         //then add them to navigation drawer
 
         sNavigationDrawer.setMenuItemList(menuItems);
-        fragmentClass =  Home.class;
+        fragmentClass =  ToDoListActivity.class;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -119,27 +119,27 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Position " + position);
 
                 switch (position) {
-                    case 0: {
-                        fragmentClass = Home.class;
-                        break;
-                    }
-                   case 1: {
+                  //  case 0: {
+                    //    fragmentClass = Home.class;
+                      //  break;
+                    //}
+                   case 0: {
                         fragmentClass = ToDoListActivity.class;
                         break;
                     }
-                    case 2: {
+                    case 1: {
                         fragmentClass = NoteTakingActivity.class;
                         break;
                     }
-                    case 3: {
+                    case 2: {
                         fragmentClass = HabitTrackerActivity.class;
                         break;
                     }
-                    case 4: {
+                    case 3: {
                         fragmentClass = StudyTimerActivity.class;
                         break;
                     }
-                    case 5: {
+                    case 4: {
                         fragmentClass = com.example.studentactivitytrackingapp.timetable.activities.MainActivity.class;
                         break;
                     }
