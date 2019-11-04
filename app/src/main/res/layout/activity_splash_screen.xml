@@ -10,19 +10,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student Tracker App"
+        android:text="Student Activity Tracking App"
         android:textColor="#336BFF"
-        android:textSize="50dp"
+        android:textSize="40sp"
         android:gravity="center"
         android:textStyle="italic"
         android:layout_marginTop="250dp"/>
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/gif"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentBottom="true"/>
 
 
 
